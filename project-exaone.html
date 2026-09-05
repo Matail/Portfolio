@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LG AIMERS 8기 EXAONE 경량화 — WONCHAN.</title>
+<meta name="description" content="GPTQ 양자화와 SparseGPT 프루닝을 함께 건 EXAONE 4.0 1.2B 모바일 경량화.">
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/portfolio/project-exaone.html">
+<meta name="theme-color" content="#0b0b0a">
+<meta name="author" content="박원찬">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%230b0b0a'/%3E%3Cpath fill='%23f2f1ef' d='M1 1h1v1H1zM6 1h1v1H6zM2 2h1v1H2zM5 2h1v1H5zM1 3h6v1H1zM1 4h2v1H1zM4 4h1v1H4zM6 4h1v1H6zM1 5h6v1H1zM2 6h1v1H2zM5 6h1v1H5z'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WONCHAN. — Game AI Engineer">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/portfolio/project-exaone.html">
+<meta property="og:title" content="LG EXAONE 모바일 경량화 — 박원찬">
+<meta property="og:description" content="GPTQ 양자화와 SparseGPT 프루닝을 함께 걸어 EXAONE 4.0 1.2B를 경량화했습니다.">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/portfolio/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LG EXAONE 모바일 경량화 — 박원찬">
+<meta name="twitter:description" content="GPTQ 양자화와 SparseGPT 프루닝을 함께 걸어 EXAONE 4.0 1.2B를 경량화했습니다.">
+<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/portfolio/assets/img/og.png">
+<!-- the wash must be opaque on the very first paint, or the incoming page
+     flashes its own content before the transition script can run -->
+<script>try{if(sessionStorage.getItem('wonchan:warp')){document.documentElement.className+=' warping-in';setTimeout(function(){document.documentElement.classList.remove('warping-in')},2600);}}catch(e){}</script>
+<style>
+html{background:#0b0b0a}
+#warp{position:fixed; inset:0; z-index:50; pointer-events:none; opacity:0; background:#0b0b0a}
+html.warping-in #warp{opacity:1}
+@media (prefers-reduced-motion:reduce){#warp{display:none !important}}
+</style>
+<link rel="stylesheet" href="assets/font/fonts.css">
+<link rel="stylesheet" href="assets/project.css">
+<link rel="stylesheet" href="assets/lightbox.css">
+</head>
+<body data-tint="0.92,0.98,1.11">
+<div id="warp" aria-hidden="true"></div>
+
+<canvas id="back" aria-hidden="true"></canvas>
+<div id="veil" aria-hidden="true"></div>
+
+<div class="hud tl mono"><a data-warp="left" href="index.html#p-exaone">← BACK</a></div>
+<div class="hud tc"><span class="dot"></span><b>WONCHAN.</b></div>
+<div class="hud tr mono">PROJECT 03 / 03</div>
+<div class="hud bl mono">RL · DATA · SLM</div>
+<div class="hud br mono">MADE BY 박원찬</div>
+<div class="meter" id="meter" aria-hidden="true"></div>
+
+<main>
+
+  <header class="lead">
+    <div class="wrap">
+      <span class="kicker mono"><i></i><span data-scramble>01 / 프로젝트 소개</span></span>
+      <h1 data-split>LG AIMERS 8기<br>EXAONE 경량화</h1>
+      <p data-split>LG AI연구원이 주관하는 전문가 강의로 LLM을 배우고, 실제 EXAONE 모델 경량화 경연으로 실전 경험을 쌓는 프로그램입니다.</p>
+      <div class="tags">
+        <span class="mono">GPTQ W4A16</span>
+        <span class="mono">SparseGPT</span>
+        <span class="mono">EXAONE 4.0 1.2B</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>02 / 프로젝트 개요</p>
+      <h2 data-split>성능은 지키고,<br>코스트는 줄여라</h2>
+      <p class="body" data-split>LLM에 대한 전문 교육을 이수한 뒤 주어진 과제는 명확했습니다. <b>모바일 전용 EXAONE 모델을 만들 것.</b> 성능은 유지하거나 향상시키면서, 모델이 요구하는 코스트는 확 줄여야 했습니다.</p>
+      <figure style="--pw:440px" class="portrait">
+        <div class="shot"><img src="assets/img/ex-slm.webp" alt="LLM을 SLM으로 증류하는 경량화 개념" loading="lazy" width="700" height="1050"></div>
+        <figcaption>비용을 걸러내며 LLM을 SLM으로 증류하는 경량화의 개념. (Lightweight LLM beyond Scaling 강의자료)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>03 / 진행한 일</p>
+      <h2 data-split>양자화 하나로는 부족했다,<br>두 개의 압축 축을 겹치다</h2>
+      <p class="body" data-split>EXAONE 4.0은 추론·수학·코드 벤치마크에서 동급 모델을 앞서는 강력한 모델이지만, 그만큼 <b>모바일에 이식하기에는 많은 코스트가 필요</b>합니다. 성능은 유지하거나 향상시키면서 모델 자체를 경량화해야 했습니다.</p>
+      <figure>
+        <div class="shot"><img src="assets/img/ex-benchmark.webp" alt="EXAONE 4.0 벤치마크" loading="lazy" width="1150" height="526"></div>
+        <figcaption>EXAONE 4.0 32B의 벤치마크 성능. 이 성능을 모바일 크기에서 지켜내는 것이 과제였습니다. (LG AI연구원 EXAONE 모델 소개 강의자료)</figcaption>
+      </figure>
+      <div class="cards">
+        <article>
+          <h3>문제 1</h3>
+          <p>GPTQ(W4A16) 단독으로는 압축률에 한계가 있습니다. 이미 4bit까지 줄인 양자화를 더 세게 밀어붙이면 <b>품질이 급격히 떨어질 위험</b>이 있었습니다.</p>
+        </article>
+        <article>
+          <h3>해결 1</h3>
+          <p>양자화와는 다른 축인 <b>프루닝(SparseGPT)</b>을 추가해 압축 방식을 이원화했습니다. 비트 수를 줄이는 대신, 남길 가중치 자체를 골라내는 것입니다.</p>
+        </article>
+        <article>
+          <h3>문제 2</h3>
+          <p>프루닝과 양자화를 같이 걸면 <b>오차가 누적되고 증폭</b>됩니다. 순서나 파라미터를 잘못 잡으면 성능이 예상보다 훨씬 크게 떨어질 수 있었습니다.</p>
+        </article>
+        <article>
+          <h3>해결 2</h3>
+          <p>프루닝으로 확정된 가중치 구조를 기준으로, <b>GPTQ가 남은 가중치의 양자화 오차를 재분배하도록 순서를 맞췄습니다.</b> 두 압축이 서로 상쇄되지 않고 온전히 누적되도록 설계한 것입니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>04 / 과정</p>
+      <h2 data-split>한 달의 교육,<br>20일의 해커톤</h2>
+      <div class="cards">
+        <article>
+          <h3>교육 · 약 1개월</h3>
+          <p>LG AI연구원 전문가들의 온라인 강의로 LLM의 기초부터 실전까지 습득했습니다. 자연어처리와 LLM Agent, 모델 압축(Compressing LLMs), 경량 LLM 연구 동향, LLM Application &amp; Evaluation, EXAONE 모델 구조까지.</p>
+        </article>
+        <article>
+          <h3>해커톤 · 약 20일</h3>
+          <p>배운 압축 기법을 EXAONE 4.0 1.2B에 직접 적용하는 경량화 해커톤을 수행했습니다. GPTQ 기반 baseline(LB 0.5±0.02)에서 출발해 프루닝을 결합하는 방향으로 확장했습니다.</p>
+        </article>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="shot"><img src="assets/img/ex-distill.webp" alt="Knowledge Distillation Teacher-Student 구조" loading="lazy" width="1050" height="472"></div>
+          <figcaption>교육에서 배운 압축 기법 중 하나인 Knowledge Distillation의 Teacher-Student 구조. (Compressing LLMs 강의자료)</figcaption>
+        </figure>
+        <figure style="--pw:360px" class="portrait">
+          <div class="shot"><img src="assets/img/ex-cert.webp" alt="LG AIMERS 8기 수료증" loading="lazy" width="558" height="780"></div>
+          <figcaption>LG AIMERS 8기 LLM 과정 수료증.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>05 / 결과물</p>
+      <h2 data-split>양자화와 프루닝을<br>동시에 건 EXAONE 4.0</h2>
+      <p class="body" data-split>EXAONE 4.0 모델에 <b>GPTQ 양자화와 SparseGPT 프루닝을 함께 적용</b>해 경량화를 완료했습니다.</p>
+      <div class="metrics">
+        <div><b>35%</b><span>sparsity + 2:4 구조적 마스크 적용</span></div>
+        <div><b>4bit</b><span>W4A16 양자화를 프루닝과 동시 적용</span></div>
+        <div><b>1.2B</b><span>모바일을 향한 EXAONE 4.0 베이스</span></div>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="shot"><img src="assets/img/ex-prune.webp" alt="네트워크 프루닝 개념도" loading="lazy" width="1000" height="598"></div>
+          <figcaption>프루닝은 연결과 뉴런을 걷어내 <b>남길 가중치를 고르는</b> 축입니다. 이 축으로 sparsity 35%와 2:4 구조적 마스크를 적용했습니다. (Compressing LLMs 강의자료)</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="assets/img/ex-quant.webp" alt="균일 양자화 개념도" loading="lazy" width="1000" height="411"></div>
+          <figcaption>양자화는 <b>비트 수 자체를 줄이는</b> 축입니다. 그림은 FP32를 8bit로 내려 128bit를 32bit로 만든 예시이고, 저는 여기서 더 내린 W4A16을 프루닝과 동시에 걸었습니다. (Compressing LLMs 강의자료)</figcaption>
+        </figure>
+      </div>
+      <div class="notes">
+        <div class="note">
+          <h3>포인트</h3>
+          <p>sparsity 35%, 2:4 구조적 마스크, 4bit 양자화. <b>세 가지 압축을 모두 동시에 적용</b>했습니다.</p>
+        </div>
+        <div class="note">
+          <h3>포인트</h3>
+          <p>baseline에서 제외했던 <b>민감 레이어를 다시 포함시키고</b>, 캘리브레이션을 강화해 그 레이어들이 압축을 버티게 하는 전략을 세웠습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>06 / 배운 점</p>
+      <h2 data-split>겹쳐 쓰는 압축에는<br>반드시 검증이 필요하다</h2>
+      <div class="cards">
+        <article>
+          <h3>Ablation의 필요성</h3>
+          <p>압축 기법을 여러 개 겹칠 때는 상호작용을 반드시 검증해야 합니다. A와 B를 동시에 적용하려면 <b>A만, B만, A+B를 모두 비교하는 ablation</b> 과정을 거쳐야 안전합니다.</p>
+        </article>
+        <article>
+          <h3>레이어별 민감도</h3>
+          <p>레이어별 민감도는 균일하지 않습니다. 압축 전후의 activation 분포나 perplexity 기여도를 <b>레이어마다 측정해서 근거를 갖고 결정</b>하는 것이 이상적입니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>07 / 나의 역량</p>
+      <h2 data-split>게임이 돌아가는 그 기기에서<br>돌아가는 AI를 만들기 위해</h2>
+      <p class="body" data-split>게임 AI는 결국 <b>유저의 기기 위에서 돌아가야</b> 합니다. 서버 코스트와 온디바이스 성능 사이에서 모델을 다이어트시키는 이 경험은, 게임 속 SLM 기반 NPC와 시스템을 현실적인 비용으로 구현하는 데 바로 이어지는 역량이라고 생각합니다.</p>
+      <p class="body" data-split>기법을 아는 것과 <b>기법들을 안전하게 조합하는 것은 다른 능력</b>입니다. ablation으로 검증하고, 레이어 민감도를 근거로 결정하는 태도로 팀의 모델 경량화와 최적화에 기여하겠습니다.</p>
+
+      <nav class="pager">
+        <a data-warp="left" href="project-faf5.html">← PREV: 물류 배송 서비스</a>
+        <a data-warp="left" href="index.html#p-exaone">BACK TO MAIN →</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/project.js"></script>
+<script src="assets/lightbox.js"></script>
+<script src="assets/warp.js"></script>
+</body>
+</html>

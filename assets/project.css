@@ -1,0 +1,165 @@
+/* ==========================================================================
+   WONCHAN. — project case study pages.
+   Same night world and type system as the main flight, laid out as a
+   document: numbered sections, figures, prev/next. Shared by all three.
+   ========================================================================== */
+:root{
+  --ink:#f2f1ef;
+  --ink-2:#c9c8c3;
+  --muted:#8b8a84;
+  --void:#0b0b0a;
+  --line:rgba(242,241,239,.18);
+  --paper:#f2f1ef;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-ui:cubic-bezier(.32,.72,0,1);
+  --hud:11px;
+  --glow:0 2px 16px rgba(0,0,0,.95), 0 0 44px rgba(0,0,0,.85);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--void); color:var(--ink);
+  font-family:'Wanted Sans Variable','Pretendard Variable',system-ui,sans-serif;
+  word-break:keep-all; overflow-wrap:break-word;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Galmuri14','Galmuri11','Wanted Sans Variable',sans-serif;
+  font-weight:700; letter-spacing:.01em; margin:0}
+a{color:inherit; text-decoration:none}
+.mono{font-family:'Galmuri11','JetBrains Mono',monospace; letter-spacing:.16em}
+
+#back{position:fixed; inset:0; width:100%; height:100%; display:block; z-index:0}
+#veil{position:fixed; inset:0; z-index:1; pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% 46%, rgba(11,11,10,0) 26%, rgba(11,11,10,.62) 72%, rgba(11,11,10,.96) 100%),
+    linear-gradient(180deg, rgba(11,11,10,.80) 0%, rgba(11,11,10,.12) 20%, rgba(11,11,10,.12) 74%, rgba(11,11,10,.88) 100%);
+}
+html.no-gl #back,html.no-gl #veil{display:none}
+
+/* ---------- fixed chrome ---------- */
+.hud{position:fixed; z-index:8; font-family:'Galmuri11','JetBrains Mono',monospace;
+  font-size:var(--hud); letter-spacing:.16em; color:var(--ink-2); text-shadow:0 1px 12px rgba(0,0,0,.9)}
+.hud.tl{left:28px; top:26px}
+.hud.tl a:hover{color:var(--ink)}
+.hud.tc{left:50%; top:16px; transform:translateX(-50%); display:flex; align-items:center; gap:9px; color:var(--ink);
+  padding:8px 16px; border-radius:999px; background:rgba(11,11,10,.72)}   /* sits over light figures */
+.hud.tc .dot{width:11px; height:11px; border-radius:50%; background:var(--ink); display:block}
+.hud.tc b{font-family:'Wanted Sans Variable',sans-serif; font-size:14px; font-weight:800; letter-spacing:.12em}
+.hud.tr{right:28px; top:26px}
+.hud.bl{left:28px; bottom:26px}
+.hud.br{right:28px; bottom:26px}
+/* light figures scroll under the fixed chrome - keep a scrim beneath it */
+body::before,body::after{content:''; position:fixed; left:0; right:0; z-index:6; pointer-events:none}
+body::before{top:0; height:104px;
+  background:linear-gradient(180deg, rgba(11,11,10,.94) 0%, rgba(11,11,10,.62) 52%, rgba(11,11,10,0) 100%)}
+body::after{bottom:0; height:112px;
+  background:linear-gradient(0deg, rgba(11,11,10,.94) 0%, rgba(11,11,10,.62) 52%, rgba(11,11,10,0) 100%)}
+
+.meter{position:fixed; left:0; right:0; bottom:0; height:52px; z-index:7; pointer-events:none;
+  display:flex; align-items:flex-end; justify-content:center; gap:5px; padding:0 24px}
+.meter i{display:block; width:3px; height:2px; background:var(--ink); opacity:.3; border-radius:1px}
+
+/* ---------- document ---------- */
+main{position:relative; z-index:3}
+.wrap{max-width:1060px; margin:0 auto; padding:0 28px}
+
+.lead{min-height:100vh; display:flex; align-items:center; padding:120px 28px 96px}
+.lead .wrap{width:100%}
+.kicker{display:inline-flex; align-items:center; gap:10px; font-size:var(--hud); color:var(--muted);
+  margin-bottom:26px; text-shadow:var(--glow)}
+.kicker i{width:7px; height:7px; background:var(--ink); display:block; flex:none}
+h1{font-size:clamp(34px,6vw,86px); line-height:1.12; letter-spacing:-.02em;
+  text-shadow:0 2px 10px rgba(0,0,0,.92), 0 0 46px rgba(0,0,0,.9), 0 0 96px rgba(0,0,0,.7)}
+.lead p{font-size:clamp(14px,1.2vw,18px); color:var(--ink-2); line-height:1.9; max-width:54ch;
+  margin:28px 0 0; text-shadow:var(--glow)}
+.tags{display:flex; flex-wrap:wrap; gap:12px; margin-top:36px}
+.tags a,.tags span{display:inline-flex; align-items:center; gap:9px; border:1px solid var(--line);
+  border-radius:999px; padding:11px 20px; font-size:12px; font-weight:700; color:var(--ink-2);
+  background:rgba(11,11,10,.5)}
+.tags a{transition:border-color .4s var(--ease-ui), color .4s var(--ease-ui), transform .5s var(--ease-ui)}
+.tags a:hover{border-color:var(--ink); color:var(--ink); transform:translateY(-2px)}
+
+section.blk{padding:112px 0; position:relative}
+.no{font-family:'Galmuri11','JetBrains Mono',monospace; font-size:11px; letter-spacing:.2em;
+  color:var(--muted); margin:0 0 20px; text-shadow:var(--glow)}
+h2{font-size:clamp(26px,3.5vw,52px); line-height:1.22; letter-spacing:-.02em; max-width:22ch;
+  text-shadow:0 2px 10px rgba(0,0,0,.92), 0 0 46px rgba(0,0,0,.9)}
+.body{font-size:16px; line-height:1.95; color:var(--ink-2); max-width:62ch; margin:28px 0 0;
+  text-shadow:var(--glow)}
+.body + .body{margin-top:18px}
+.body b{color:var(--ink); font-weight:700}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:44px}
+.cards article{border:1px solid var(--line); border-radius:18px; padding:24px 24px 26px;
+  background:rgba(11,11,10,.55)}
+.cards h3{margin:0 0 12px; font-family:'Galmuri11','JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.2em; color:var(--muted)}
+.cards p{margin:0; font-size:14px; line-height:1.85; color:var(--ink-2)}
+.cards p + p{margin-top:10px}
+.cards b{color:var(--ink); font-weight:700}
+
+.metrics{display:flex; flex-wrap:wrap; gap:40px 56px; margin-top:44px}
+.metrics div b{display:block; font-family:'Galmuri14','Galmuri11',monospace;
+  font-size:clamp(30px,3.6vw,52px); line-height:1; text-shadow:0 2px 12px rgba(0,0,0,.95), 0 0 50px rgba(0,0,0,.85)}
+.metrics div span{display:block; margin-top:12px; font-size:12px; line-height:1.7; color:var(--muted);
+  max-width:22ch; text-shadow:var(--glow)}
+
+figure{margin:44px 0 0}
+figure .shot{background:var(--paper); border-radius:16px; padding:12px; overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.55)}
+figure.plain .shot{background:none; padding:0; box-shadow:0 24px 60px rgba(0,0,0,.5)}
+figure img{display:block; width:100%; height:auto; border-radius:8px}
+
+/* hovering already pulls the picture towards you; the click carries that
+   same motion on into the lightbox */
+figure .shot{transition:transform .55s var(--ease), box-shadow .55s var(--ease)}
+figure img{transition:transform .62s var(--ease)}
+figure:hover .shot,figure:focus-within .shot{
+  transform:translateY(-6px) scale(1.012); box-shadow:0 38px 88px rgba(0,0,0,.62)}
+figure:hover img,figure:focus-within img{transform:scale(1.035)}
+figure.plain:hover .shot,figure.plain:focus-within .shot{box-shadow:0 38px 88px rgba(0,0,0,.6)}
+figcaption{margin-top:14px; font-size:12.5px; line-height:1.8; color:var(--muted); max-width:66ch;
+  text-shadow:var(--glow)}
+/* portrait shots: cap the figure width so the natural ratio survives -
+   never cropped by cover, never letterboxed by contain */
+figure.portrait{max-width:var(--pw,400px); margin-left:auto; margin-right:auto}
+figure.portrait img{height:auto; max-height:none; object-fit:fill}
+
+.figs{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:32px; margin-top:44px}
+.figs figure{margin:0}
+
+.note{margin-top:40px; border-left:2px solid var(--line); padding:4px 0 4px 22px}
+.note h3{font-family:'Galmuri11','JetBrains Mono',monospace; font-size:11px; letter-spacing:.2em;
+  color:var(--muted); margin:0 0 10px}
+.note p{margin:0; font-size:14.5px; line-height:1.9; color:var(--ink-2); max-width:60ch;
+  text-shadow:var(--glow)}
+.notes{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; margin-top:40px}
+.notes .note{margin-top:0}
+
+.pager{display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px;
+  padding:96px 0 132px; border-top:1px solid var(--line); margin-top:96px}
+.pager a{display:inline-flex; align-items:center; gap:10px; font-family:'Galmuri11','JetBrains Mono',monospace;
+  font-size:12px; letter-spacing:.16em; color:var(--ink-2);
+  transition:color .3s var(--ease-ui), transform .4s var(--ease-ui)}
+.pager a:hover{color:var(--ink); transform:translateY(-2px)}
+
+.rv{display:inline-block; will-change:transform,opacity,filter}
+
+@media (max-width:720px){
+  :root{--hud:10px}
+  .hud.tl,.hud.bl{left:16px}
+  .hud.tr,.hud.br{right:16px}
+  .hud.tl,.hud.tc,.hud.tr{top:18px}
+  .hud.bl,.hud.br{bottom:70px}
+  .hud.tc b{font-size:12px}
+  .wrap{padding:0 20px}
+  .lead{padding:104px 20px 80px}
+  section.blk{padding:88px 0}
+  .pager{padding:72px 0 120px}
+  .meter{height:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  figure .shot,figure img{transition:none !important; transform:none !important}
+  .rv{opacity:1 !important; transform:none !important; filter:none !important}
+}

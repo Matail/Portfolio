@@ -1,0 +1,9 @@
+/* Self-hosted so a blocked CDN cannot change the typography.
+   Galmuri (c) Lee Minseo, Wanted Sans (c) Wanted Lab, both SIL OFL 1.1.
+   Subset to the glyphs this site renders. */
+@font-face{font-family:'Wanted Sans Variable';font-style:normal;font-display:swap;
+  font-weight:400 1000;src:url('WantedSansVariable.woff2') format('woff2-variations')}
+@font-face{font-family:Galmuri14;font-style:normal;font-weight:400;font-display:swap;
+  src:local('Galmuri14 Regular'),url('Galmuri14.woff2') format('woff2')}
+@font-face{font-family:Galmuri11;font-style:normal;font-weight:400;font-display:swap;
+  src:local('Galmuri11 Regular'),url('Galmuri11.woff2') format('woff2')}

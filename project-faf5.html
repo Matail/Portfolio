@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>미국 화물 통계 기반 물류 배송 서비스 — WONCHAN.</title>
+<meta name="description" content="FAF5 화물 통계를 정제해 운송 비용을 예측하고 LLM이 대안을 설명하는 대시보드.">
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/portfolio/project-faf5.html">
+<meta name="theme-color" content="#0b0b0a">
+<meta name="author" content="박원찬">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%230b0b0a'/%3E%3Cpath fill='%23f2f1ef' d='M1 1h1v1H1zM6 1h1v1H6zM2 2h1v1H2zM5 2h1v1H5zM1 3h6v1H1zM1 4h2v1H1zM4 4h1v1H4zM6 4h1v1H6zM1 5h6v1H1zM2 6h1v1H2zM5 6h1v1H5z'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WONCHAN. — Game AI Engineer">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/portfolio/project-faf5.html">
+<meta property="og:title" content="미국 화물 통계 기반 물류 배송 서비스 — 박원찬">
+<meta property="og:description" content="FAF5 데이터를 정제해 운송 비용을 예측하고, LLM이 절감 대안을 설명하는 대시보드.">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/portfolio/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="미국 화물 통계 기반 물류 배송 서비스 — 박원찬">
+<meta name="twitter:description" content="FAF5 데이터를 정제해 운송 비용을 예측하고, LLM이 절감 대안을 설명하는 대시보드.">
+<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/portfolio/assets/img/og.png">
+<!-- the wash must be opaque on the very first paint, or the incoming page
+     flashes its own content before the transition script can run -->
+<script>try{if(sessionStorage.getItem('wonchan:warp')){document.documentElement.className+=' warping-in';setTimeout(function(){document.documentElement.classList.remove('warping-in')},2600);}}catch(e){}</script>
+<style>
+html{background:#0b0b0a}
+#warp{position:fixed; inset:0; z-index:50; pointer-events:none; opacity:0; background:#0b0b0a}
+html.warping-in #warp{opacity:1}
+@media (prefers-reduced-motion:reduce){#warp{display:none !important}}
+</style>
+<link rel="stylesheet" href="assets/font/fonts.css">
+<link rel="stylesheet" href="assets/project.css">
+<link rel="stylesheet" href="assets/lightbox.css">
+</head>
+<body data-tint="1.09,1.00,0.90">
+<div id="warp" aria-hidden="true"></div>
+
+<canvas id="back" aria-hidden="true"></canvas>
+<div id="veil" aria-hidden="true"></div>
+
+<div class="hud tl mono"><a data-warp="left" href="index.html#p-faf5">← BACK</a></div>
+<div class="hud tc"><span class="dot"></span><b>WONCHAN.</b></div>
+<div class="hud tr mono">PROJECT 02 / 03</div>
+<div class="hud bl mono">RL · DATA · SLM</div>
+<div class="hud br mono">MADE BY 박원찬</div>
+<div class="meter" id="meter" aria-hidden="true"></div>
+
+<main>
+
+  <header class="lead">
+    <div class="wrap">
+      <span class="kicker mono"><i></i><span data-scramble>01 / 프로젝트 소개</span></span>
+      <h1 data-split>미국 화물 통계 기반<br>물류 배송 서비스</h1>
+      <p data-split>미국 화물 통계(FAF5) 데이터를 활용해 주문 지역과 상품 정보가 주어지면 운송 비용을 예측하고 추천 정보를 제공하는 시스템입니다.</p>
+      <div class="tags">
+        <a href="https://github.com/NOMADATASCIENCE/FAF5_Features/tree/develop" target="_blank" rel="noopener">GITHUB →</a>
+        <span class="mono">담당 · 데이터 전처리, 프론트엔드 개발</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>02 / 프로젝트 개요</p>
+      <h2 data-split>트럭 데이터로<br>운송 시스템을 개선하다</h2>
+      <p class="body" data-split>미국 물류의 중심은 트럭입니다. 미국 화물 이동의 주요 운송 수단인 트럭 데이터를 활용해, <b>감에 의존하던 운송 의사결정을 데이터 기반으로 개선하는 것</b>이 이 프로젝트의 목적이었습니다.</p>
+      <figure>
+        <div class="shot"><img src="assets/img/fa-title.webp" alt="프로젝트 개요 슬라이드" loading="lazy" width="900" height="480"></div>
+        <figcaption>한양대학교 ERICA SW중심대학 · NGL Korea 산학 과제로 진행한 4인 팀 프로젝트.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>03 / 진행한 일</p>
+      <h2 data-split>거리만으로는<br>운송비를 설명할 수 없다</h2>
+      <div class="cards">
+        <article>
+          <h3>배경</h3>
+          <p>한양대학교 인공지능학과 데이터사이언스 강의에서 미국 종합물류기업 NGL Transportation의 한국지사 NGL Korea가 실제 과제를 냈습니다. 미국 화물 통계 데이터를 활용한 데이터 분석과 AI를 결합한 결과물을 제시하는 것.</p>
+        </article>
+        <article>
+          <h3>문제</h3>
+          <p>단순 거리 기반 추천은 실제 운송비와 물류 흐름을 충분히 반영하지 못합니다. <b>같은 거리라도 품목, 유가, 경기에 따라 비용이 크게 달라지기에</b>, 현실적인 비용 예측과 배송 추천 구조가 필요했습니다.</p>
+        </article>
+        <article>
+          <h3>해결</h3>
+          <p>FAF5의 출발지/목적지, 품목, 거리 구간, 물동량, 운송 가치에 <b>유가 데이터, 거시경제지표, 인구·이동 같은 외부 데이터를 결합</b>했습니다. 2017~2022년치 데이터를 통합해 현실성을 보완한 예측 모델을 개발했습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>04 / 과정</p>
+      <h2 data-split>흩어진 데이터를<br>하나의 학습 가능한 형태로</h2>
+      <p class="body" data-split>제가 맡은 핵심 역할은 <b>데이터 전처리</b>였습니다. 미국 화물 통계와 외부 데이터를 결합해 예측과 추천에 바로 쓸 수 있는 통합 데이터셋을 만들었습니다.</p>
+      <div class="cards">
+        <article>
+          <h3>조합 단위 정리</h3>
+          <p>연도별 출발지·목적지, 품목, 거리 조합 단위로 데이터를 재구성했습니다.</p>
+        </article>
+        <article>
+          <h3>변수 통합</h3>
+          <p>물동량, 가치, ton-miles, 유가, 인구/이동 변수를 한 행에 통합했습니다.</p>
+        </article>
+        <article>
+          <h3>파생 변수 생성</h3>
+          <p>거리, 비용, 가치밀도 관련 파생 변수를 만들어 모델의 표현력을 높였습니다.</p>
+        </article>
+      </div>
+      <div class="notes">
+        <div class="note">
+          <h3>포인트</h3>
+          <p>Feature 간 <b>VIF 다중공선성</b>을 검사해 정보가 겹치는 Feature는 배제했습니다.</p>
+        </div>
+        <div class="note">
+          <h3>포인트</h3>
+          <p><b>Optuna</b> 프레임워크로 4개 모델 각각의 최적 하이퍼파라미터 조합을 탐색했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>05 / 결과물</p>
+      <h2 data-split>4개 예측 모델과 LLM이 함께<br>답하는 운송 비용 대시보드</h2>
+      <p class="body" data-split>경로, 품목, 운송량, 연도를 입력하면 <b>CatBoost, XGBoost, RandomForest, LightGBM</b> 4개 모델의 분석 결과를 보여주고, <b>llama-3.3-70b</b>를 호출해 비용 절감 대안과 권장 조치까지 설명해 주는 웹앱을 개발했습니다.</p>
+      <figure>
+        <div class="shot"><img src="assets/img/fa-dashboard.webp" alt="완성된 운송 비용 대시보드" loading="lazy" width="1300" height="640"></div>
+        <figcaption>완성된 대시보드. 경로를 지도에 그리고 내년 예상 운송 비용, Feature Importance, LLM의 비용 절감 분석을 함께 보여줍니다.</figcaption>
+      </figure>
+      <div class="figs">
+        <figure>
+          <div class="shot"><img src="assets/img/fa-accuracy.webp" alt="모델별 실용 정확도 비교" loading="lazy" width="1000" height="552"></div>
+          <figcaption>모델별 실용 정확도 비교. RandomForest가 ±10% 이내 예측 70.3%로 가장 우수했습니다.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="assets/img/fa-rmse.webp" alt="구간별 오차 분해" loading="lazy" width="1200" height="337"></div>
+          <figcaption>품목 카테고리, 거리 구간, 출발 지역(PADD)별로 모델 오차를 분해해 비교했습니다.</figcaption>
+        </figure>
+      </div>
+      <div class="metrics">
+        <div><b>70.3%</b><span>RandomForest ±10% 이내 예측 비율</span></div>
+        <div><b>4</b><span>비교한 부스팅·앙상블 예측 모델</span></div>
+        <div><b>2017–22</b><span>통합한 FAF5 데이터 범위</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>06 / 배운 점</p>
+      <h2 data-split>큰 데이터와 작은 팀이<br>가르쳐 준 것</h2>
+      <div class="cards">
+        <article>
+          <h3>메모리 관리</h3>
+          <p>미국 화물 통계처럼 큰 데이터를 다룰 때는 <b>메모리 관리가 분석 그 자체만큼 중요</b>하다는 것을 깨달았습니다.</p>
+        </article>
+        <article>
+          <h3>예시로 소통하기</h3>
+          <p>팀 내에 언어적 소통의 어려움이 있을 때는 <b>예시 결과물을 직접 보여주며 설명하는 것</b>이 가장 효율적이었습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>07 / 나의 역량</p>
+      <h2 data-split>사소한 오해가<br>전혀 다른 결과물을 만든다</h2>
+      <p class="body" data-split>4명의 소규모 프로젝트임에도 <b>의사소통의 사소한 오류로 전혀 다른 결과물이 나올 수 있다</b>는 것을 깨달았습니다. 언제나 서로의 이해 내용을 확인하고, 사소한 오류라도 바로잡아야 합니다.</p>
+      <p class="body" data-split>주기적인 미팅과 전문가의 도움은 결과물의 완성도를 크게 높였습니다. 팀원 간의 미팅을 중요하게 생각하고, <b>도움을 요청하는 데 망설이지 않는 것 또한 능력</b>이라고 믿습니다. 이 태도로 팀에 기여하겠습니다.</p>
+
+      <nav class="pager">
+        <a data-warp="left" href="project-streams.html">← PREV: 스트림스 에이전트</a>
+        <a data-warp="right" href="project-exaone.html">NEXT: EXAONE 경량화 →</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/project.js"></script>
+<script src="assets/lightbox.js"></script>
+<script src="assets/warp.js"></script>
+</body>
+</html>

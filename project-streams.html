@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강화학습을 활용한 스트림스 에이전트 — WONCHAN.</title>
+<meta name="description" content="강화학습에 모방학습을 더한 보드게임 에이전트와, 사람이 직접 대결하는 PVE 웹게임.">
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/portfolio/project-streams.html">
+<meta name="theme-color" content="#0b0b0a">
+<meta name="author" content="박원찬">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Crect width='8' height='8' fill='%230b0b0a'/%3E%3Cpath fill='%23f2f1ef' d='M1 1h1v1H1zM6 1h1v1H6zM2 2h1v1H2zM5 2h1v1H5zM1 3h6v1H1zM1 4h2v1H1zM4 4h1v1H4zM6 4h1v1H6zM1 5h6v1H1zM2 6h1v1H2zM5 6h1v1H5z'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WONCHAN. — Game AI Engineer">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/portfolio/project-streams.html">
+<meta property="og:title" content="강화학습을 활용한 스트림스 에이전트 — 박원찬">
+<meta property="og:description" content="D3QN에 모방학습을 결합해 평균 31.8 → 71.5점. 사람과 대결하는 PVE 웹게임까지 배포했습니다.">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/portfolio/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="강화학습을 활용한 스트림스 에이전트 — 박원찬">
+<meta name="twitter:description" content="D3QN에 모방학습을 결합해 평균 31.8 → 71.5점. 사람과 대결하는 PVE 웹게임까지 배포했습니다.">
+<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/portfolio/assets/img/og.png">
+<!-- the wash must be opaque on the very first paint, or the incoming page
+     flashes its own content before the transition script can run -->
+<script>try{if(sessionStorage.getItem('wonchan:warp')){document.documentElement.className+=' warping-in';setTimeout(function(){document.documentElement.classList.remove('warping-in')},2600);}}catch(e){}</script>
+<style>
+html{background:#0b0b0a}
+#warp{position:fixed; inset:0; z-index:50; pointer-events:none; opacity:0; background:#0b0b0a}
+html.warping-in #warp{opacity:1}
+@media (prefers-reduced-motion:reduce){#warp{display:none !important}}
+</style>
+<link rel="stylesheet" href="assets/font/fonts.css">
+<link rel="stylesheet" href="assets/project.css">
+<link rel="stylesheet" href="assets/lightbox.css">
+</head>
+<body data-tint="0.91,1.05,1.02">
+<div id="warp" aria-hidden="true"></div>
+
+<canvas id="back" aria-hidden="true"></canvas>
+<div id="veil" aria-hidden="true"></div>
+
+<div class="hud tl mono"><a data-warp="left" href="index.html#p-streams">← BACK</a></div>
+<div class="hud tc"><span class="dot"></span><b>WONCHAN.</b></div>
+<div class="hud tr mono">PROJECT 01 / 03</div>
+<div class="hud bl mono">RL · DATA · SLM</div>
+<div class="hud br mono">MADE BY 박원찬</div>
+<div class="meter" id="meter" aria-hidden="true"></div>
+
+<main>
+
+  <header class="lead">
+    <div class="wrap">
+      <span class="kicker mono"><i></i><span data-scramble>01 / 프로젝트 소개</span></span>
+      <h1 data-split>강화학습을 활용한<br>스트림스 에이전트</h1>
+      <p data-split>강화학습에 모방학습(사람 플레이 데이터)을 더한 에이전트와 사람이 직접 대결할 수 있는 PVE 보드게임입니다.</p>
+      <div class="tags">
+        <a href="https://streams-server-deploy.vercel.app/" target="_blank" rel="noopener">LIVE PLAY →</a>
+        <a href="https://github.com/Koojunyeong/streams/tree/main" target="_blank" rel="noopener">GITHUB →</a>
+        <span class="mono">담당 · 에이전트 개발, 게임 웹앱 개발</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>02 / 프로젝트 개요</p>
+      <h2 data-split>정말 사람처럼 보드게임을 하는<br>에이전트를 만들 수 있을까</h2>
+      <p class="body" data-split>캡스톤디자인 연구 주제를 정하며 가장 하고 싶었던 것은 게임과 AI를 결합한 연구였습니다. 목표는 하나였습니다. 규칙을 외운 기계가 아니라, <b>정말 사람처럼 전략을 세우고 상황에 따라 판단하며</b> 보드게임을 플레이하는 에이전트를 만드는 것.</p>
+      <figure style="--pw:380px" class="portrait plain">
+        <div class="shot"><img src="assets/img/st-team.webp" alt="캡스톤 포스터 발표 현장" loading="lazy" width="622" height="1104"></div>
+        <figcaption>캡스톤디자인 포스터 발표. 연구 주제 선정부터 배포까지 2인 팀으로 진행했습니다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>03 / 진행한 일</p>
+      <h2 data-split>규칙을 다 적을 수 없다면,<br>스스로 배우게 하자</h2>
+      <div class="cards">
+        <article>
+          <h3>배경</h3>
+          <p>평소 게임을 매우 즐겨 하기에 게임을 직접 컴퓨터로 구현해 보고 싶었고, 마침 AI를 공부하고 있었기에 둘을 결합해 연구를 시작했습니다.</p>
+        </article>
+        <article>
+          <h3>문제</h3>
+          <p>스트림스는 경우의 수가 굉장히 많은 게임입니다. 게다가 예외 상황이 너무 많아 <b>“이럴 땐 이렇게”라는 규칙을 일일이 지정하는 방식은 애초에 불가능</b>했습니다.</p>
+        </article>
+        <article>
+          <h3>해결</h3>
+          <p>예외 상황을 지정하지 않아도 되는 강화학습을 베이스로, 에이전트가 스스로 규칙과 상황별 노하우를 익히도록 했습니다. 다만 강화학습만으로는 성능이 만족스럽지 않아, <b>실제 유저의 플레이 데이터를 활용한 모방학습을 앙상블</b>했습니다.</p>
+        </article>
+      </div>
+      <figure>
+        <div class="shot"><img src="assets/img/st-score-table.webp" alt="오름차순 구간 길이별 점수표" loading="lazy" width="1200" height="230"></div>
+        <figcaption>오름차순 구간 길이(L)별 점수. L=20이면 300점으로, 점수가 초선형적으로 커져 매 턴의 선택이 무겁습니다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>04 / 과정</p>
+      <h2 data-split>이기는 전략은 두 가지,<br>에이전트에게 맞는 것은 하나</h2>
+      <div class="cards">
+        <article>
+          <h3>FULLSTREAM</h3>
+          <p>보드의 모든 칸(1~20)을 끊기지 않는 하나의 오름차순으로 연결하는 전략.</p>
+          <p>고득점에 유효하지만 실패하면 저점이 매우 낮습니다.</p>
+        </article>
+        <article>
+          <h3>DUMMYSPACE</h3>
+          <p>일부 칸을 버리는 공간으로 정해두고, 원하지 않는 숫자는 더미로 빼며 메인 공간의 오름차순만 지키는 전략.</p>
+          <p>일정 점수는 안정적으로 얻지만 변동 폭이 좁아 고득점이 어렵습니다.</p>
+        </article>
+      </div>
+      <p class="body" data-split>두 전략으로 각각 에이전트를 나누어 연구한 끝에, 강화학습은 각 상황에서 학습한 최선의 선택을 하므로 <b>어느 정도의 저점이 이미 보장된다</b>는 점에 주목했습니다. 그렇다면 에이전트에게 어울리는 방식은 고득점을 노려 승리를 추구하는 것 — Fullstream 전략을 채택했습니다.</p>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>05 / 결과물</p>
+      <h2 data-split>D3QN 에이전트, 그리고<br>사람과 대결하는 PVE 웹게임</h2>
+      <p class="body" data-split>D3QN 신경망 구조로 에이전트를 구성하고, 1차로 웹앱을 개발해 사람과 에이전트가 대결하는 PVE 게임을 배포했습니다. 여기서 수집한 실제 플레이 데이터로 추가 모방학습을 진행했습니다.</p>
+      <figure>
+        <div class="shot"><img src="assets/img/st-network.webp" alt="Dueling Network 구조도" loading="lazy" width="1000" height="259"></div>
+        <figcaption>91차원 입력을 받는 Dueling Network 구조와 모방학습(BC) 사전학습 단계.</figcaption>
+      </figure>
+      <div class="figs">
+        <figure>
+          <div class="shot"><img src="assets/img/st-histogram.webp" alt="사람 플레이 점수 분포" loading="lazy" width="1000" height="569"></div>
+          <figcaption>수집한 사람 플레이 점수 분포. 대부분 20점대 초중반에 밀집해 있습니다.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="assets/img/st-correlation.webp" alt="점수와 상관이 높은 특성" loading="lazy" width="1000" height="596"></div>
+          <figcaption>점수와 가장 강한 상관을 보인 특성은 최장 오름차순 구간 길이(r=0.863)였습니다.</figcaption>
+        </figure>
+      </div>
+      <div class="notes">
+        <div class="note">
+          <h3>포인트</h3>
+          <p>사람 데이터를 분석해 보니 사람들은 주로 Dummyspace 방식을 채용하지만, 평균 점수가 더 높은 방식은 Fullstream 전략이었습니다. <b>에이전트의 전략 선택이 데이터로 검증된 순간</b>입니다.</p>
+        </div>
+        <div class="note">
+          <h3>포인트</h3>
+          <p>모방학습에는 아무 데이터나 쓰지 않았습니다. <b>40점 이상의 유의미한 고득점 플레이만 선별</b>해 학습을 진행했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>06 / 성과</p>
+      <h2 data-split>평균 70점대 에이전트,<br>그리고 우수상</h2>
+      <div class="metrics">
+        <div><b>70+</b><span>500판 평균 점수. 평균 15개 이상의 오름차순 연결</span></div>
+        <div><b>1,346</b><span>직접 만든 웹앱으로 수집한 사람 플레이 게임 수</span></div>
+        <div><b>우수상</b><span>단과대학 캡스톤 경영대회 수상</span></div>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="shot"><img src="assets/img/st-curve.webp" alt="200k 에피소드 학습 곡선" loading="lazy" width="739" height="440"></div>
+          <figcaption>200k 에피소드 학습 곡선. 평균 32점에서 71점으로 안정적으로 수렴했습니다.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="assets/img/st-dist.webp" alt="학습 전후 점수 분포" loading="lazy" width="1100" height="451"></div>
+          <figcaption>학습 전후 점수 분포(31.8 → 71.5). 저득점 꼬리가 사라지고 분포가 조밀해졌습니다.</figcaption>
+        </figure>
+      </div>
+      <figure class="plain">
+        <div class="shot"><img src="assets/img/st-award.webp" alt="캡스톤 경영대회 수상" loading="lazy" width="900" height="675"></div>
+        <figcaption>단과대학 캡스톤 경영대회 우수상.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <p class="no mono" data-scramble>07 / 나의 역량</p>
+      <h2 data-split>게임은 유저와 함께<br>완성해 가는 것</h2>
+      <p class="body" data-split>게임은 만들어서 유저가 플레이하는 순간 완성되는 것이 아니라, <b>유저와 함께 완성해 가는 것</b>임을 배웠습니다. 배포 후 쏟아진 유저들의 의견과 즉각적인 피드백에 따라 게임의 완성도가 크게 달라지는 것을 직접 체감했습니다.</p>
+      <p class="body" data-split>또 하나. 시뮬레이션 결과, 실제 플레이 결과, 통계상의 결과에서 체감되는 에이전트의 성능이 모두 달랐습니다. <b>에이전트는 활용 환경마다 따로 평가되어야 하며</b>, 성능을 끌어올리려면 어떤 환경의 영향이 가장 큰지부터 알아야 한다는 것. 게임 AI 엔지니어로서 이 감각을 가지고 개발에 기여하겠습니다.</p>
+
+      <nav class="pager">
+        <a data-warp="left" href="index.html#p-streams">← BACK TO MAIN</a>
+        <a data-warp="right" href="project-faf5.html">NEXT: 물류 배송 서비스 →</a>
+      </nav>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/project.js"></script>
+<script src="assets/lightbox.js"></script>
+<script src="assets/warp.js"></script>
+</body>
+</html>
