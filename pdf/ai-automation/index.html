@@ -209,6 +209,14 @@ ul.chk li::before{content:"";position:absolute;left:.3mm;top:1.25mm;width:2.2mm;
 .mini{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
 .mini .card h4{margin-bottom:.3mm}
 .mini .card .tags{margin-bottom:1.1mm}
+.ocard{display:flex;flex-direction:column}
+.ocard .tags{margin:.4mm 0 1.6mm}
+.ocard .bul li{font-size:7.3pt;margin-bottom:1mm}
+.ofig{margin-top:auto;padding-top:2.4mm}
+.ofig img{width:100%;display:block;border-radius:1.6mm;border:.25mm solid var(--line)}
+.ofig.cert img{width:38mm;margin:0 auto}
+.ofig figcaption{font-size:6.5pt;color:var(--mute);margin-top:1mm;line-height:1.45}
+.ofig.cert figcaption{text-align:center}
 .cases{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
 .case{border:.28mm solid var(--line);border-radius:2.6mm;padding:4mm 4.4mm 3.8mm;display:flex;flex-direction:column}
 .case .hd{display:flex;align-items:baseline;gap:2.4mm;margin-bottom:.8mm}
@@ -242,6 +250,10 @@ ul.chk li::before{content:"";position:absolute;left:.3mm;top:1.25mm;width:2.2mm;
 .stats .n small{font-size:8pt;color:var(--mute);font-weight:600}
 .stats .l{font-size:6.7pt;color:var(--mute);line-height:1.4}
 .figs{display:grid;grid-template-columns:62mm 1fr;gap:4mm;align-items:end}
+.figs.v17{grid-template-columns:1.68fr 2.16fr;align-items:start}
+figure.wide{margin-top:3.6mm}
+figure.wide img{width:100%;display:block;border-radius:1.6mm;border:.25mm solid var(--line)}
+figure.wide figcaption{font-size:6.5pt;color:var(--mute);margin-top:1mm;line-height:1.45}
 .figs figure img{width:100%;display:block;border-radius:1.6mm;border:.25mm solid var(--line)}
 .figs figcaption{font-size:6.5pt;color:var(--mute);margin-top:1mm;line-height:1.45}
 .bul{list-style:none}
@@ -656,45 +668,61 @@ table.fit td.q{width:62mm;color:#4a4a47}
 </section>
 
 <!-- ======================================================================
-     PAGE 5 — PROJECTS
+     PAGE 5 — STREAMS v17
      ====================================================================== -->
-<section class="page">
-  <div class="rail"><span class="v">WONCHAN PARK — SHIPPED PROJECTS</span><span class="pn">05</span></div>
+<section class="page p5">
+  <div class="rail"><span class="v">WONCHAN PARK — STREAMS v17</span><span class="pn">05</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
     <header class="ph">
-      <span class="en">04 · Shipped Projects</span>
-      <h2>AI가 들어간 서비스를 끝까지 운영합니다</h2>
-      <p class="lead">실험에서 멈추지 않고, 사람이 실제로 쓰는 곳까지 배포한 뒤 다시 고칩니다.</p>
+      <span class="en">04 · Streams v17</span>
+      <h2>사람과 같은 정보로 다시 이긴 보드게임 AI</h2>
+      <p class="lead">캡스톤에서 끝내지 않고 스스로 다시 점검했습니다. 공정한 조건에서 새로 학습하고, 난이도를 붙여 실제 게임으로 배포했습니다.</p>
     </header>
 
     <div class="proj">
       <div class="bar">
-        <div><span class="en">RL · Unity · Cloudflare</span><h3>STREAMS — 사람과 같은 정보로 겨루는 보드게임 AI</h3></div>
+        <div><span class="en">RL · Unity · Cloudflare</span><h3>STREAMS — 사람과 겨루는 보드게임과 AI</h3></div>
         <div class="lk">matail.party/games/streams-unity<br>github.com/Koojunyeong/streams</div>
       </div>
       <div class="in">
         <div class="steps">
           <div class="step"><span class="sn">1</span><h5>캡스톤 (2인 팀)</h5><p>되돌릴 수 없는 20번의 카드 배치. 모방학습(BC)과 D3QN을 결합해 평균 31.8점을 71.5점으로 올렸고, 학습 데이터는 직접 만든 웹앱으로 1,346게임을 모았습니다. 단과대학 우수상.</p></div>
-          <div class="step"><span class="sn">2</span><h5>스스로 다시 점검</h5><p>캡스톤 이후 세 가지 문제를 찾았습니다. 사람은 모르는 다음 덱 정보가 입력에 들어간 정보 누수, 비교 연산 <code>&lt;</code>/<code>&lt;=</code> 버그, 배포 환경에 torch가 없어 AI가 무작위로 둔 기간의 데이터 오염. 같은 정보로 맞추자 24.4점으로 사람(31.3점)보다 낮았습니다.</p></div>
-          <div class="step"><span class="sn">3</span><h5>v17 새로 학습</h5><p>afterstate TD와 n-tuple 가치 함수로 47.5점, Stochastic Gumbel AlphaZero 정책망으로 48.8점(고정 덱 2,000판, 95% 신뢰구간 비교). 사람 모방 정책과 섞어 난이도 5단계를 만들었습니다.</p></div>
-          <div class="step"><span class="sn">4</span><h5>서비스로 배포</h5><p>Unity 6로 다시 만들고 Unity MCP로 WebGL 빌드. 덱과 AI는 Cloudflare Worker에만 두고(PyTorch 정책망을 TypeScript로 옮기며 합성곱까지 직접 구현), Durable Objects 웹소켓으로 친구 대전, D1에 쌓인 기록은 다음 학습 데이터가 됩니다.</p></div>
+          <div class="step"><span class="sn">2</span><h5>스스로 다시 점검</h5><p>캡스톤 이후 세 가지 문제를 찾았습니다. 사람은 모르는 다음 덱 정보가 입력에 들어간 정보 누수, 비교 연산 <code>&lt;</code>/<code>&lt;=</code> 버그, 배포 환경에 torch가 없어 AI가 무작위로 둔 기간의 데이터 오염. 같은 정보로 맞추자 v16은 24.4점으로, 사람 평균 31.3점(실제 1,655판)은 물론 당장 점수만 고르는 greedy(38.0점)보다도 낮았습니다.</p></div>
+          <div class="step"><span class="sn">3</span><h5>v17 새로 학습</h5><p>사람과 같은 정보(124차원 입력)만 보는 85만 파라미터 정책·가치망. afterstate TD n-tuple 47.5점(보드 전체 특징을 더해 45점대 정체 돌파), TD + expectimax 탐색 48.4점, Stochastic Gumbel AlphaZero 셀프플레이(반복당 512판) 48.8점. 고정 덱 2,000판·95% 신뢰구간으로 비교했고, 20점 미만 판은 339판에서 0판이 됐습니다.</p></div>
+          <div class="step"><span class="sn">4</span><h5>난이도와 서비스</h5><p>사람 모방 정책(사람 수 일치 66.8%)과 SGAZ 정책을 β 하나로 섞어 난이도 5단계(22.3~49.0점)를 만들었습니다. 게임은 Unity 6로 다시 만들어 Unity MCP로 WebGL 빌드했고, 덱과 AI는 서버에만 두어 torch 없이 수마다 순전파 한 번으로 둡니다. Durable Objects 웹소켓으로 친구 대전, D1에 쌓인 기록은 다음 학습 데이터가 됩니다.</p></div>
         </div>
         <div class="stats">
-          <div><div class="n">31.8<small> → </small>71.5</div><div class="l">캡스톤 BC + D3QN</div></div>
-          <div><div class="n">24.4<small> → </small>48.8</div><div class="l">같은 정보 조건 v16 → v17</div></div>
-          <div><div class="n">1,346</div><div class="l">직접 모은 사람 플레이</div></div>
-          <div><div class="n">5<small>단계</small></div><div class="l">사람 모방 + SGAZ 난이도</div></div>
+          <div><div class="n">24.4<small> → </small>48.8</div><div class="l">같은 정보 조건 v16 → v17 (사람 31.3)</div></div>
+          <div><div class="n">339<small> → </small>0</div><div class="l">20점 미만 판 (2,000판 중)</div></div>
+          <div><div class="n">22.3<small>~</small>49.0</div><div class="l">난이도 5단계 평균 점수</div></div>
+          <div><div class="n">31.8<small> → </small>71.5</div><div class="l">캡스톤 BC + D3QN (1,346게임 수집)</div></div>
         </div>
-        <div class="figs">
-          <figure><img src="../../assets/img/st-curve.webp" alt=""><figcaption>200k 에피소드 학습 곡선. 평균 32점에서 71점으로 수렴(캡스톤).</figcaption></figure>
-          <figure><img src="../../assets/img/st-network.webp" alt=""><figcaption>91차원 입력 Dueling Network와 모방학습 사전학습 단계(캡스톤).</figcaption></figure>
+        <div class="figs v17">
+          <figure><img src="../../assets/img/st17-compare.webp" alt="사람과 같은 정보 조건에서 에이전트별 평균 점수"><figcaption>사람과 같은 정보만 볼 때의 평균 점수. 같은 평가 덱 2,000판에서 v16은 사람 평균보다 낮았고, v17은 세 방식 모두 47점을 넘었습니다.</figcaption></figure>
+          <figure><img src="../../assets/img/st17-levels.webp" alt="난이도 5단계와 강함-사람다움 균형"><figcaption>β 하나로 사람 모방 정책과 SGAZ 정책을 섞은 난이도 5단계. β가 커질수록 강해지고, 사람과 같은 수를 두는 비율은 낮아집니다.</figcaption></figure>
         </div>
+        <figure class="wide"><img src="../../assets/img/st17-network.webp" alt="v17 정책·가치망과 Gumbel AlphaZero 학습 구조도"><figcaption>124차원 입력을 받는 v17 정책·가치망(85만 파라미터)과 Stochastic Gumbel AlphaZero 셀프플레이 학습. 게임 서버에서는 사람 모방 정책과 섞어 난이도를 만듭니다.</figcaption></figure>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="gap"></div>
+<!-- ======================================================================
+     PAGE 6 — MORE WORK
+     ====================================================================== -->
+<section class="page p6">
+  <div class="rail"><span class="v">WONCHAN PARK — MORE WORK</span><span class="pn">06</span></div>
+  <div class="body">
+    <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
+
+    <header class="ph">
+      <span class="en">05 · More Work</span>
+      <h2>AI가 들어간 서비스를 끝까지 운영합니다</h2>
+      <p class="lead">실험에서 멈추지 않고, 사람이 실제로 쓰는 곳까지 배포한 뒤 다시 고칩니다.</p>
+    </header>
+
     <div class="proj">
       <div class="bar">
         <div><span class="en">Astro · TypeScript · Workers</span><h3>matail.party — 직접 운영하는 게임 포털</h3></div>
@@ -723,20 +751,49 @@ table.fit td.q{width:62mm;color:#4a4a47}
         <p>공고와 제 작업 기록을 근거로 클라우드 세션에서 HTML로 짜고, Playwright로 PDF를 렌더링하면서 쪽마다 내용이 넘치는지 자동으로 검사했습니다. 원본은 Portfolio 저장소의 <code>pdf/ai-automation</code>에 있습니다.</p>
       </div>
     </div>
+
+    <div class="gap"></div>
+    <div class="sh"><span class="dot"></span><span class="t">OTHER AI WORK</span><span class="ko">그 밖의 AI 경험</span><span class="rule"></span></div>
+    <div class="others">
+      <div class="card ocard">
+        <h4>LG EXAONE 모바일 경량화</h4>
+        <div class="tags"><span class="tag">GPTQ W4A16</span><span class="tag">SparseGPT</span><span class="tag">EXAONE 4.0 1.2B</span></div>
+        <ul class="bul">
+          <li>LG AIMERS 8기 LLM 과정(약 1개월)을 수료하고, 약 20일 해커톤에서 EXAONE 4.0 1.2B를 모바일용으로 경량화</li>
+          <li>4bit 양자화(GPTQ W4A16)와 프루닝(SparseGPT, sparsity 35%, 2:4 구조 마스크)을 함께 적용</li>
+          <li>프루닝으로 정해진 구조 위에서 GPTQ가 남은 오차를 나누도록 순서를 맞춤</li>
+          <li>베이스라인에서 뺐던 민감 레이어를 다시 넣고, 캘리브레이션을 강화해 압축을 버티게 함</li>
+          <li><b>배운 점:</b> 압축을 겹칠 땐 A만·B만·A+B를 비교하는 ablation과 레이어별 민감도 근거가 필요</li>
+        </ul>
+        <figure class="ofig cert"><img src="../../assets/img/ex-cert.webp" alt="LG AIMERS 8기 수료증"><figcaption>LG AIMERS 8기 LLM 과정 수료증</figcaption></figure>
+      </div>
+      <div class="card ocard">
+        <h4>미국 화물 통계 기반 물류 서비스</h4>
+        <div class="tags"><span class="tag">Pandas</span><span class="tag">Optuna</span><span class="tag">Flask</span><span class="tag">llama-3.3-70b</span></div>
+        <ul class="bul">
+          <li>한양대 ERICA SW중심대학 · NGL Korea 산학 과제(4인). 데이터 전처리와 프런트엔드 담당</li>
+          <li>2017–22년 FAF5 화물 통계에 유가·거시경제지표·인구 이동 데이터를 결합하고, 조합 단위로 재구성해 파생 변수 생성</li>
+          <li>VIF로 다중공선성을 걸러내고, Optuna로 CatBoost·XGBoost·RandomForest·LightGBM 튜닝. RandomForest가 ±10% 이내 70.3%</li>
+          <li>LLM이 비용 절감 대안과 권장 조치를 설명하는 대시보드</li>
+        </ul>
+        <figure class="ofig"><img src="../../assets/img/fa-dashboard.webp" alt="물류 비용 예측 대시보드"><figcaption>경로를 지도에 그리고 예상 운송 비용, Feature Importance, LLM의 비용 절감 분석을 함께 보여주는 대시보드</figcaption></figure>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ======================================================================
-     PAGE 6 — FIT + OTHERS + CLOSING
+     PAGE 7 — FIT + CLOSING
      ====================================================================== -->
 <section class="page">
-  <div class="rail"><span class="v">WONCHAN PARK — FIT FOR THE ROLE</span><span class="pn">06</span></div>
+  <div class="rail"><span class="v">WONCHAN PARK — FIT FOR THE ROLE</span><span class="pn">07</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
-    <header class="ph" style="margin-bottom:4.5mm">
-      <span class="en">05 · Fit for the Role</span>
+    <header class="ph" style="margin-bottom:5mm">
+      <span class="en">06 · Fit for the Role</span>
       <h2>공고 항목별 근거</h2>
+      <p class="lead">크로노스튜디오 AI팀 공고의 담당업무·자격요건·우대사항을 하나씩, 이 문서의 어느 쪽에 근거가 있는지와 함께 정리했습니다.</p>
     </header>
 
     <table class="fit">
@@ -751,33 +808,18 @@ table.fit td.q{width:62mm;color:#4a4a47}
         <tr><td class="q">최신 AI 기술 실험·프로토타이핑·실무 적용</td><td>생성형 AI 4종 MCP 연동, Gumbel AlphaZero를 실제 게임 AI로 배포</td><td class="pg">4–5</td></tr>
         <tr class="grp"><td colspan="3"><span>자격요건</span></td></tr>
         <tr><td class="q">AI와 자동화에 대한 집착에 가까운 관심</td><td>문서 변환·공부까지 에이전트로 처리, 직접 겪은 함정 기록 수십 개</td><td class="pg">2, 4</td></tr>
-        <tr><td class="q">Claude Code 등 AI 코딩 도구 적극 활용</td><td>CLI · Remote Control · 클라우드 세션을 함께 쓰고, matail.party PR 49개 이상</td><td class="pg">2, 5</td></tr>
-        <tr><td class="q">Python / TypeScript로 실제 결과물</td><td>Python: 강화학습·MCP 서버·Agent SDK 팀 / TypeScript: Workers·Astro 서비스 운영</td><td class="pg">3–5</td></tr>
+        <tr><td class="q">Claude Code 등 AI 코딩 도구 적극 활용</td><td>CLI · Remote Control · 클라우드 세션을 함께 쓰고, matail.party PR 49개 이상</td><td class="pg">2, 6</td></tr>
+        <tr><td class="q">Python / TypeScript로 실제 결과물</td><td>Python: 강화학습·MCP 서버·Agent SDK 팀 / TypeScript: Workers·Astro 서비스 운영</td><td class="pg">3–6</td></tr>
         <tr><td class="q">새 기술을 직접 찾아 실험하고 적용</td><td>SGAZ와 사람 모방 정책을 섞은 난이도, 새 생성형 API를 MCP로 연결</td><td class="pg">4–5</td></tr>
         <tr class="grp"><td colspan="3"><span>우대사항</span></td></tr>
-        <tr><td class="q">AI로 직접 만든 도구·서비스·자동화 시스템</td><td>에이전트 팀, 최신 문서 MCP, matail.party, Streams</td><td class="pg">3–5</td></tr>
+        <tr><td class="q">AI로 직접 만든 도구·서비스·자동화 시스템</td><td>에이전트 팀, 최신 문서 MCP, matail.party, Streams</td><td class="pg">3–6</td></tr>
         <tr><td class="q">Agent SDK / MCP / Tool Calling / Multi-Agent 구현</td><td>서브에이전트별 도구 제한, 유료 호출 가드, StructuredOutput 매니페스트</td><td class="pg">3</td></tr>
-        <tr><td class="q">Full-stack 개발 경험</td><td>Astro·TypeScript·Workers·D1·Durable Objects, Flask·Supabase</td><td class="pg">5–6</td></tr>
+        <tr><td class="q">Full-stack 개발 경험</td><td>Astro·TypeScript·Workers·D1·Durable Objects, Flask·Supabase</td><td class="pg">6</td></tr>
         <tr><td class="q">AI 오픈소스를 뜯어보거나 개조</td><td>unity-mcp 버전 고정 원리, blender-mcp 프로토콜 차이 분석</td><td class="pg">4</td></tr>
         <tr><td class="q">복잡한 개발 워크플로 자동화</td><td>worktree로 격리한 리팩터링 팀, 서버 23개 부트스트랩</td><td class="pg">3–4</td></tr>
         <tr><td class="q">Unity / Unreal 게임 개발 환경 이해</td><td>Unity 6 리빌드와 WebGL 배포, Unity MCP 연동</td><td class="pg">5</td></tr>
       </tbody>
     </table>
-
-    <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">OTHER AI WORK</span><span class="ko">그 밖의 AI 경험</span><span class="rule"></span></div>
-    <div class="others">
-      <div class="card">
-        <h4>LG EXAONE 모바일 경량화</h4>
-        <div class="tags"><span class="tag">GPTQ W4A16</span><span class="tag">SparseGPT</span><span class="tag">EXAONE 4.0 1.2B</span></div>
-        <p>LG AIMERS 8기 해커톤(약 20일). 4bit 양자화와 프루닝(sparsity 35%, 2:4 구조)을 함께 걸고, 프루닝으로 정해진 구조 위에서 GPTQ가 양자화 오차를 나누도록 순서를 맞췄습니다.</p>
-      </div>
-      <div class="card">
-        <h4>미국 화물 통계 기반 물류 서비스</h4>
-        <div class="tags"><span class="tag">Pandas</span><span class="tag">Optuna</span><span class="tag">Flask</span><span class="tag">llama-3.3-70b</span></div>
-        <p>NGL Korea 산학 과제(4인). 2017–22년 FAF5와 유가·거시지표를 결합하는 전처리를 맡았고, 4개 모델 중 RandomForest가 ±10% 이내 70.3%. LLM이 비용 절감 대안을 설명하는 대시보드.</p>
-      </div>
-    </div>
 
     <div class="gap"></div>
     <div class="close">
