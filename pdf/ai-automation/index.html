@@ -691,7 +691,7 @@ table.fit td.q{width:62mm;color:#4a4a47}
           <div class="step"><span class="sn">1</span><h5>캡스톤 (2인 팀)</h5><p>되돌릴 수 없는 20번의 카드 배치. 모방학습(BC)과 D3QN을 결합해 평균 31.8점을 71.5점으로 올렸고, 학습 데이터는 직접 만든 웹앱으로 1,346게임을 모았습니다. 단과대학 우수상.</p></div>
           <div class="step"><span class="sn">2</span><h5>스스로 다시 점검</h5><p>캡스톤 이후 세 가지 문제를 찾았습니다. 사람은 모르는 다음 덱 정보가 입력에 들어간 정보 누수, 비교 연산 <code>&lt;</code>/<code>&lt;=</code> 버그, 배포 환경에 torch가 없어 AI가 무작위로 둔 기간의 데이터 오염. 같은 정보로 맞추자 v16은 24.4점으로, 사람 평균 31.3점(실제 1,655판)은 물론 당장 점수만 고르는 greedy(38.0점)보다도 낮았습니다.</p></div>
           <div class="step"><span class="sn">3</span><h5>v17 새로 학습</h5><p>사람과 같은 정보(124차원 입력)만 보는 85만 파라미터 정책·가치망. afterstate TD n-tuple 47.5점(보드 전체 특징을 더해 45점대 정체 돌파), TD + expectimax 탐색 48.4점, Stochastic Gumbel AlphaZero 셀프플레이(반복당 512판) 48.8점. 고정 덱 2,000판·95% 신뢰구간으로 비교했고, 20점 미만 판은 339판에서 0판이 됐습니다.</p></div>
-          <div class="step"><span class="sn">4</span><h5>난이도와 서비스</h5><p>사람 모방 정책(사람 수 일치 66.8%)과 SGAZ 정책을 β 하나로 섞어 난이도 5단계(22.3~49.0점)를 만들었습니다. 게임은 Unity 6로 다시 만들어 Unity MCP로 WebGL 빌드했고, 덱과 AI는 서버에만 두어 torch 없이 수마다 순전파 한 번으로 둡니다. Durable Objects 웹소켓으로 친구 대전, D1에 쌓인 기록은 다음 학습 데이터가 됩니다.</p></div>
+          <div class="step"><span class="sn">4</span><h5>난이도와 서비스</h5><p>사람 모방 정책(사람 수 일치 66.8%)과 SGAZ 정책을 β 하나로 섞어 난이도 5단계(22.3~49.0점)를 만들었습니다. 게임은 Unity 6로 다시 만들어 Unity MCP로 WebGL 빌드했고, 덱과 AI는 Cloudflare Worker 서버에만 두고, 추론은 torch 없이 numpy만으로 수마다 순전파 한 번에 끝납니다. Durable Objects 웹소켓으로 친구 대전, D1에 쌓인 기록은 다음 학습 데이터가 됩니다.</p></div>
         </div>
         <div class="stats">
           <div><div class="n">24.4<small> → </small>48.8</div><div class="l">같은 정보 조건 v16 → v17 (사람 31.3)</div></div>
