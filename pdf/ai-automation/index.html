@@ -283,11 +283,14 @@ figure.wide{margin-top:3.6mm}
 
 .close h3{font-size:12.5pt}
 .insight .ring{width:34mm;height:34mm;right:-17mm;top:-17mm}
-.insight .disc{right:10mm}
+.insight .disc{right:-4mm;bottom:-7mm}
+.ins .pj{align-self:flex-start}
 .ins{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;position:relative}
 .ins .pj{display:inline-block;background:var(--sage);color:var(--char-2);border-radius:99mm;padding:.3mm 2.8mm;font-size:7.2pt;font-weight:700}
-.ins p{margin-top:2.6mm;font-size:7.8pt;line-height:1.45;color:var(--side-mute)}
-.ins p b{display:block;font-size:8.8pt;font-weight:700;color:#fff;margin-bottom:.4mm}
+.ins>div{display:flex;flex-direction:column}
+.ins .say{margin-top:2.8mm;font-size:9.4pt;font-weight:700;line-height:1.45;color:#fff}
+.ins .why{margin-top:1.6mm;font-size:7.7pt;line-height:1.55;color:#c9c8c0}
+.ins .src{margin-top:auto;padding-top:2mm;font-size:6.9pt;color:var(--sage)}
 
 .p2 .ph{margin-bottom:9mm}
 .p2 .gap{height:11mm}
@@ -749,22 +752,25 @@ figure.wide{margin-top:3.6mm}
     <div class="gap"></div>
     <div class="close insight">
       <div class="ring"></div><div class="disc"></div>
-      <h3>프로젝트에서 얻은 것</h3>
+      <h3>이렇게 일하겠습니다</h3>
       <div class="ins">
         <div>
-          <span class="pj">Streams</span>
-          <p><b>게임은 유저와 함께 완성된다</b>배포 후 피드백이 완성도를 바꿈</p>
-          <p><b>에이전트는 환경마다 따로 평가</b>시뮬레이션 · 실플레이 · 통계가 모두 다름</p>
+          <span class="pj">소통</span>
+          <p class="say">“제가 이해한 게 맞는지, 먼저 되묻겠습니다.”</p>
+          <p class="why">4인 팀에서 사소한 오해 하나가 전혀 다른 결과물을 만드는 걸 겪었습니다. 말로 어려우면 예시부터 보여드리겠습니다.</p>
+          <span class="src">FAF5 물류 서비스에서</span>
         </div>
         <div>
-          <span class="pj">EXAONE</span>
-          <p><b>겹쳐 쓴 기법은 ablation으로</b>A만 · B만 · A+B를 비교해야 안전</p>
-          <p><b>결정은 측정한 근거로</b>레이어마다 민감도가 다름</p>
+          <span class="pj">피드백</span>
+          <p class="say">“만들고 끝내지 않고, 써 본 사람의 말을 듣고 고치겠습니다.”</p>
+          <p class="why">Streams를 배포한 뒤 쏟아진 의견과 피드백으로 게임의 완성도가 크게 달라졌습니다.</p>
+          <span class="src">Streams에서</span>
         </div>
         <div>
-          <span class="pj">FAF5 물류</span>
-          <p><b>큰 데이터는 메모리부터</b>메모리 관리가 분석만큼 중요</p>
-          <p><b>말보다 예시로 소통</b>사소한 오해도 바로 확인</p>
+          <span class="pj">도움 요청</span>
+          <p class="say">“막히면 혼자 붙잡고 있지 않고, 바로 묻겠습니다.”</p>
+          <p class="why">주기적인 미팅과 전문가의 도움이 결과물을 끌어올렸습니다. 도움을 청하는 것도 능력이라고 믿습니다.</p>
+          <span class="src">FAF5 물류 서비스에서</span>
         </div>
       </div>
     </div>
