@@ -30,7 +30,7 @@ b,strong{font-weight:600}
 @media screen{body{padding:10mm 0}.page{margin:0 auto 10mm;box-shadow:0 2mm 8mm rgba(0,0,0,.25)}}
 
 .mono{font-family:'JBM','Pretendard',monospace}
-.mono,code,.log,.time .d,.num-k,.no{font-variant-ligatures:none;font-feature-settings:"calt" 0,"liga" 0}
+.mono,code,.log,.num-k,.no{font-variant-ligatures:none;font-feature-settings:"calt" 0,"liga" 0}
 .ring{position:absolute;border:.32mm solid var(--char);border-radius:50%;pointer-events:none}
 .disc{position:absolute;border-radius:50%;pointer-events:none}
 .muted{color:var(--mute)}
@@ -141,14 +141,6 @@ code{font-family:'JBM',monospace;font-size:.9em;background:var(--sage-p);padding
 .cando .card{border-top:1.1mm solid var(--sage);border-radius:0 0 2.6mm 2.6mm;padding-top:3mm}
 .num-k{font-family:'JBM',monospace;font-size:7.2pt;color:var(--sage-d);font-weight:600}
 .cando h4{margin:.4mm 0 1mm}
-.time{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:3mm;padding-top:5mm}
-.time::before{content:"";position:absolute;left:1mm;right:1mm;top:1.6mm;height:.3mm;background:var(--char)}
-.time .t{position:relative}
-.time .t::before{content:"";position:absolute;left:0;top:-4.6mm;width:2.6mm;height:2.6mm;border-radius:50%;background:#fff;border:.45mm solid var(--char)}
-.time .t.now::before{background:var(--sage);border-color:var(--sage-d);box-shadow:0 0 0 1mm var(--sage-p)}
-.time .d{font-family:'JBM',monospace;font-size:7pt;color:var(--sage-d);font-weight:600}
-.time p{font-size:7.9pt;line-height:1.45;margin-top:.5mm}
-.time .t.now p{font-weight:600}
 
 /* ================= PAGE 3 ================= */
 .flow{display:grid;grid-template-columns:1fr 4mm 1fr 4mm 1fr 4mm 1fr 4mm 1fr;align-items:stretch}
@@ -296,6 +288,25 @@ figure.wide{margin-top:3.6mm}
 .ins .pj{display:inline-block;background:var(--sage);color:var(--char-2);border-radius:99mm;padding:.3mm 2.8mm;font-size:7.2pt;font-weight:700}
 .ins p{margin-top:2.6mm;font-size:7.8pt;line-height:1.45;color:var(--side-mute)}
 .ins p b{display:block;font-size:8.8pt;font-weight:700;color:#fff;margin-bottom:.4mm}
+
+.p2 .ph{margin-bottom:9mm}
+.p2 .gap{height:11mm}
+.p2 .sh{margin-bottom:4mm}
+.p2 .card{padding:4.6mm 5mm}
+.p2 .card h4{font-size:10pt}
+.p2 .card p{font-size:8.6pt;line-height:1.55}
+.p2 .surf .card .top{margin-bottom:2.4mm}
+.p2 .ico{width:8mm;height:8mm}
+.p2 .chip{font-size:7.4pt;padding:.3mm 2.2mm;margin:0 .9mm 1.6mm 0}
+.p2 .hub{grid-template-columns:72mm 28mm 1fr}
+.p2 .hub .grp{margin-top:2.8mm}
+.p2 .hub .grp .gl{font-size:7.4pt;margin-bottom:1mm}
+.p2 .hub .core .c{width:28mm;height:28mm}
+.p2 .hub .core .c b{font-size:10pt}
+.p2 .hub .right{gap:4.5mm}
+.p2 .legend{font-size:7.2pt;margin-top:1.4mm}
+.p2 .cando .card{padding-top:4mm;padding-bottom:5mm}
+.p2 .cando h4{margin:.8mm 0 1.6mm}
 </style>
 </head>
 <body>
@@ -336,8 +347,7 @@ figure.wide{margin-top:3.6mm}
       </section>
       <section>
         <h3>즐기는 게임</h3>
-        <b>몬스터 헌터 · 엘든 링 · 세키로</b>
-        <span>Darkest Dungeon · Slay the Spire</span>
+        <b>STEAM 라이브러리 80+</b>
       </section>
     </div>
     <div class="ring side-ring"></div>
@@ -398,7 +408,7 @@ figure.wide{margin-top:3.6mm}
 <!-- ======================================================================
      PAGE 2 — MY AGENT ENVIRONMENT
      ====================================================================== -->
-<section class="page">
+<section class="page p2">
   <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">02</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
@@ -411,7 +421,7 @@ figure.wide{margin-top:3.6mm}
     <div class="sh"><span class="dot"></span><span class="t">어디서 일하나</span><span class="rule"></span></div>
     <div class="surf">
       <div class="card">
-        <div class="top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 6l5 5-5 5M11 17h8"/></svg></span><h4>PC · Claude Code CLI</h4></div>
+        <div class="top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 6l5 5-5 5M11 17h8"/></svg></span><h4>PC · Claude Code</h4></div>
         <p>메인 작업대 · MCP 23개 · Unity / Blender</p>
       </div>
       <div class="card">
@@ -468,15 +478,6 @@ figure.wide{margin-top:3.6mm}
       <div class="card"><span class="num-k">04</span><h4>배포와 운영</h4><p>Workers · D1 운영, 휴대폰으로 지시</p></div>
     </div>
 
-    <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">요즘 하고 있는 것</span><span class="rule"></span></div>
-    <div class="time">
-      <div class="t"><span class="d">2026.09</span><p>포트폴리오 웹<br>matail.party 개설</p></div>
-      <div class="t"><span class="d">2026.09–10</span><p>Streams Unity 6 리빌드<br>실시간 대전 서버</p></div>
-      <div class="t"><span class="d">2026.10</span><p>Streams v17 배포<br>블로그 · feedme 3D</p></div>
-      <div class="t"><span class="d">2026.10–11</span><p>생성형 AI · 문서 MCP<br>부트스트랩</p></div>
-      <div class="t now"><span class="d">NOW</span><p>에이전트 팀 4개<br>실전 투입 중</p></div>
-    </div>
   </div>
 </section>
 
