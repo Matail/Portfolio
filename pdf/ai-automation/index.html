@@ -237,8 +237,6 @@ table.st td.r span{font-size:6.9pt;color:var(--mute)}
 figure.wide{margin-top:3.6mm}
 
 /* ================= PAGE 6 ================= */
-.mini{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
-.mini .card .tags{margin:.4mm 0 1.2mm}
 .others{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
 .ocard{display:flex;flex-direction:column}
 .ocard .tags{margin:.4mm 0 2mm}
@@ -246,20 +244,9 @@ figure.wide{margin-top:3.6mm}
 .ofig.cert img{width:36mm;margin:0 auto}
 .ofig.cert figcaption{text-align:center}
 
-/* ================= PAGE 7 ================= */
-table.fit{width:100%;border-collapse:collapse;font-size:7.8pt;line-height:1.45}
-table.fit th{text-align:left;font-size:7pt;color:var(--mute);font-weight:700;padding:0 2mm 1.4mm 0;border-bottom:.35mm solid var(--char)}
-table.fit td{vertical-align:top;padding:1.8mm 2.4mm 1.8mm 0;border-bottom:.25mm solid var(--line)}
-table.fit td.pg{font-family:'JBM',monospace;font-size:6.8pt;color:var(--sage-d);white-space:nowrap;padding-right:0;text-align:right}
-table.fit tr.grp td{border-bottom:0;padding:3mm 0 .8mm}
-table.fit tr.grp span{display:inline-block;background:var(--char);color:#fff;border-radius:99mm;padding:.2mm 2.8mm;font-size:7pt;font-weight:700}
-table.fit td.q{width:62mm;color:#4a4a47}
+/* ================= closing insights ================= */
 .close{position:relative;background:var(--char);color:#fff;border-radius:2.8mm;padding:5.6mm 6mm 5.4mm;overflow:hidden}
 .close h3{font-size:12pt;font-weight:700;margin-bottom:3.4mm;line-height:1.35}
-.close .kv{--kw:20mm;max-width:130mm}
-.close .kv dt{color:var(--sage)}
-.close .kv dd{color:#e4e3dc;font-size:8.2pt}
-.close .ct{display:flex;gap:5mm;margin-top:4mm;font-family:'JBM','Pretendard',monospace;font-size:7pt;color:var(--sage-l)}
 .close .ring{border-color:rgba(163,172,132,.6);width:44mm;height:44mm;right:-12mm;top:-14mm}
 .close .disc{width:12mm;height:12mm;right:22mm;bottom:-6mm;background:var(--sage)}
 
@@ -291,31 +278,24 @@ table.fit td.q{width:62mm;color:#4a4a47}
 .p5 figure.wide{margin-top:6mm}
 .p5 .figs figcaption,.p5 figure.wide figcaption{font-size:7.6pt}
 
-.p6 .gap{height:9mm}
+.p6 .gap{height:7mm}
 .p6 .proj .in{padding:4.6mm 5.2mm 5mm}
 .p6 .kv{gap:2.4mm 3.4mm;--kw:16mm}
 .p6 .kv dt{font-size:7.6pt}
 .p6 .kv dd{font-size:8.7pt}
 .p6 .card{padding:4.6mm 5mm}
 .p6 .card h4{font-size:10pt}
-.p6 .mini p{font-size:8.6pt}
 .p6 .ofig{padding-top:5mm}
-.p6 .ofig.cert img{width:46mm}
+.p6 .ofig.cert img{width:34mm}
 .p6 .ofig figcaption{font-size:7.4pt}
 
-.p7 .ph{margin-bottom:8mm}
-.p7 table.fit{font-size:8.5pt}
-.p7 table.fit td{padding:2.6mm 2.4mm 2.6mm 0}
-.p7 table.fit td.q{width:66mm}
-.p7 table.fit tr.grp td{padding:4mm 0 1mm}
-.p7 table.fit td.pg{font-size:7.4pt}
-.p7 .gap{height:10mm}
-.p7 .close{padding:7mm 7mm 6.6mm}
-.p7 .close h3{font-size:13.5pt;margin-bottom:4.4mm}
-.p7 .close .kv{gap:2.4mm 3mm;--kw:22mm}
-.p7 .close .kv dt{font-size:7.8pt}
-.p7 .close .kv dd{font-size:9pt}
-.p7 .close .ct{font-size:7.6pt;margin-top:5mm}
+.close h3{font-size:12.5pt}
+.insight .ring{width:34mm;height:34mm;right:-17mm;top:-17mm}
+.insight .disc{right:10mm}
+.ins{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;position:relative}
+.ins .pj{display:inline-block;background:var(--sage);color:var(--char-2);border-radius:99mm;padding:.3mm 2.8mm;font-size:7.2pt;font-weight:700}
+.ins p{margin-top:2.6mm;font-size:7.8pt;line-height:1.45;color:var(--side-mute)}
+.ins p b{display:block;font-size:8.8pt;font-weight:700;color:#fff;margin-bottom:.4mm}
 </style>
 </head>
 <body>
@@ -739,20 +719,6 @@ table.fit td.q{width:62mm;color:#4a4a47}
     </div>
 
     <div class="gap"></div>
-    <div class="mini">
-      <div class="card">
-        <h4>포트폴리오 웹</h4>
-        <div class="tags"><span class="tag">three.js</span><span class="tag">GitHub Pages</span></div>
-        <p>스크롤로 나는 복셀 지형 · 페이지 전환 · 라이트박스 · 자체 호스팅 글꼴</p>
-      </div>
-      <div class="card">
-        <h4>이 PDF</h4>
-        <div class="tags"><span class="tag">Claude Code</span><span class="tag">Playwright</span></div>
-        <p>클라우드 세션에서 HTML 작성 → PDF 렌더링 · 쪽 넘침 자동 검사</p>
-      </div>
-    </div>
-
-    <div class="gap"></div>
     <div class="sh"><span class="dot"></span><span class="t">그 밖의 AI 경험</span><span class="rule"></span></div>
     <div class="others">
       <div class="card ocard">
@@ -779,56 +745,27 @@ table.fit td.q{width:62mm;color:#4a4a47}
         <figure class="ofig"><img src="../../assets/img/fa-dashboard.webp" alt="물류 비용 예측 대시보드"><figcaption>경로 · 예상 비용 · Feature Importance · LLM 분석 대시보드</figcaption></figure>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ======================================================================
-     PAGE 7 — FIT + CLOSING
-     ====================================================================== -->
-<section class="page p7">
-  <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">07</span></div>
-  <div class="body">
-    <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
-
-    <header class="ph">
-      <h2>공고 항목별 근거</h2>
-    </header>
-
-    <table class="fit">
-      <colgroup><col style="width:62mm"><col><col style="width:9mm"></colgroup>
-      <thead><tr><th>공고 항목</th><th>근거</th><th style="text-align:right">쪽</th></tr></thead>
-      <tbody>
-        <tr class="grp"><td colspan="3"><span>담당업무</span></td></tr>
-        <tr><td class="q">AI Agent 기반 도구 · 자동화 시스템</td><td>에이전트 팀 4개 (MCP 도구로 호출)</td><td class="pg">3</td></tr>
-        <tr><td class="q">LLM / Agent SDK / MCP 워크플로</td><td>팀장–서브에이전트 · MCP 23개 운용 / 9개 작성</td><td class="pg">2–3</td></tr>
-        <tr><td class="q">Multi-Agent · Orchestration</td><td>비동기 Job API · 기획 → 백엔드 → 보고서 연계</td><td class="pg">3</td></tr>
-        <tr><td class="q">반복 작업을 없애는 Tooling</td><td>문서 MCP · 부트스트랩 · Skills</td><td class="pg">4</td></tr>
-        <tr><td class="q">최신 AI 실험 · 실무 적용</td><td>생성형 AI 4종 MCP · Gumbel AlphaZero 배포</td><td class="pg">4–5</td></tr>
-        <tr class="grp"><td colspan="3"><span>자격요건</span></td></tr>
-        <tr><td class="q">AI · 자동화에 대한 집착</td><td>공부 · 문서 변환까지 에이전트로 · 함정 기록 수십 개</td><td class="pg">2, 4</td></tr>
-        <tr><td class="q">AI 코딩 도구 적극 활용</td><td>CLI · Remote Control · 클라우드 세션 · PR 49+</td><td class="pg">2, 6</td></tr>
-        <tr><td class="q">Python / TypeScript 결과물</td><td>Python: RL · MCP · Agent SDK / TS: Workers · Astro</td><td class="pg">3–6</td></tr>
-        <tr><td class="q">새 기술 직접 실험 · 적용</td><td>SGAZ × 사람 모방 난이도 · 새 API를 MCP로</td><td class="pg">4–5</td></tr>
-        <tr class="grp"><td colspan="3"><span>우대사항</span></td></tr>
-        <tr><td class="q">AI로 만든 도구 · 서비스</td><td>에이전트 팀 · 문서 MCP · matail.party · Streams</td><td class="pg">3–6</td></tr>
-        <tr><td class="q">Agent SDK / MCP / Tool Calling</td><td>역할별 도구 제한 · 유료 호출 가드 · 구조화 출력</td><td class="pg">3</td></tr>
-        <tr><td class="q">Full-stack</td><td>Astro · TS · Workers · D1 · DO / Flask · Supabase</td><td class="pg">6</td></tr>
-        <tr><td class="q">AI 오픈소스 분석 · 개조</td><td>unity-mcp 버전 고정 · blender-mcp 프로토콜 분석</td><td class="pg">4</td></tr>
-        <tr><td class="q">복잡한 워크플로 자동화</td><td>worktree 격리 리팩터링 · 서버 23개 부트스트랩</td><td class="pg">3–4</td></tr>
-        <tr><td class="q">Unity / Unreal</td><td>Unity 6 리빌드 · WebGL 배포 · Unity MCP</td><td class="pg">5</td></tr>
-      </tbody>
-    </table>
-
     <div class="gap"></div>
-    <div class="close">
+    <div class="close insight">
       <div class="ring"></div><div class="disc"></div>
-      <h3>반복은 에이전트에게, 판단은 사람에게</h3>
-      <dl class="kv">
-        <dt>보이는 반복</dt><dd>에셋 준비 · 빌드 · QA 보고</dd>
-        <dt>지금</dt><dd>혼자 쓰는 규모에서 에이전트 팀으로 운용 중</dd>
-        <dt>하고 싶은 일</dt><dd>실제 개발팀 규모에서 검증하고, 결정 지점은 사람에게 남기는 도구</dd>
-      </dl>
-      <div class="ct"><span>pow01042@naver.com</span><span>matail.party</span><span>github.com/Matail</span></div>
+      <h3>프로젝트에서 얻은 것</h3>
+      <div class="ins">
+        <div>
+          <span class="pj">Streams</span>
+          <p><b>게임은 유저와 함께 완성된다</b>배포 후 피드백이 완성도를 바꿈</p>
+          <p><b>에이전트는 환경마다 따로 평가</b>시뮬레이션 · 실플레이 · 통계가 모두 다름</p>
+        </div>
+        <div>
+          <span class="pj">EXAONE</span>
+          <p><b>겹쳐 쓴 기법은 ablation으로</b>A만 · B만 · A+B를 비교해야 안전</p>
+          <p><b>결정은 측정한 근거로</b>레이어마다 민감도가 다름</p>
+        </div>
+        <div>
+          <span class="pj">FAF5 물류</span>
+          <p><b>큰 데이터는 메모리부터</b>메모리 관리가 분석만큼 중요</p>
+          <p><b>말보다 예시로 소통</b>사소한 오해도 바로 확인</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
