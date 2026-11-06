@@ -22,7 +22,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:#9b9b95}
-body{font-family:'Pretendard',system-ui,sans-serif;color:var(--ink);font-size:8.2pt;line-height:1.55;
+body{font-family:'Pretendard',system-ui,sans-serif;color:var(--ink);font-size:8.4pt;line-height:1.55;
   word-break:keep-all;overflow-wrap:break-word;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 b,strong{font-weight:600}
 .page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--paper);break-after:page}
@@ -30,24 +30,28 @@ b,strong{font-weight:600}
 @media screen{body{padding:10mm 0}.page{margin:0 auto 10mm;box-shadow:0 2mm 8mm rgba(0,0,0,.25)}}
 
 .mono{font-family:'JBM','Pretendard',monospace}
-.mono,code,.code,.log,.time .d,.k,.no{font-variant-ligatures:none;font-feature-settings:"calt" 0,"liga" 0}
-.en{font-size:6.4pt;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
+.mono,code,.log,.time .d,.num-k,.no{font-variant-ligatures:none;font-feature-settings:"calt" 0,"liga" 0}
 .ring{position:absolute;border:.32mm solid var(--char);border-radius:50%;pointer-events:none}
 .disc{position:absolute;border-radius:50%;pointer-events:none}
 .muted{color:var(--mute)}
+.ar-i{color:var(--sage-d);font-weight:700;margin:0 .6mm}
 
-/* section heading: dot + tracked label + hairline (the resume-sheet motif) */
-.sh{display:flex;align-items:center;gap:2.4mm;margin-bottom:3.2mm}
+/* section heading: dot + one Korean label + hairline */
+.sh{display:flex;align-items:center;gap:2.4mm;margin-bottom:3mm}
 .sh .dot{width:2.3mm;height:2.3mm;border-radius:50%;background:var(--char);flex:none}
-.sh .t{font-size:7.2pt;letter-spacing:.22em;font-weight:700;color:var(--char);white-space:nowrap}
-.sh .ko{font-size:7.6pt;color:var(--mute);font-weight:500;white-space:nowrap}
+.sh .t{font-size:9pt;font-weight:700;color:var(--char);white-space:nowrap}
 .sh .rule{flex:1;height:.25mm;background:var(--line)}
 
-.chip{display:inline-block;border:.25mm solid var(--line);border-radius:99mm;padding:.15mm 1.9mm;font-size:6.7pt;
+.chip{display:inline-block;border:.25mm solid var(--line);border-radius:99mm;padding:.15mm 1.9mm;font-size:6.9pt;
   margin:0 .7mm 1.1mm 0;background:#fff;line-height:1.55;white-space:nowrap}
 .chip.own{background:var(--sage-p);border-color:var(--sage)}
-.tag{display:inline-block;font-size:6.5pt;color:var(--sage-d);font-weight:600;margin-right:2mm}
-code,.code{font-family:'JBM',monospace;font-size:.92em;background:var(--sage-p);padding:0 .8mm;border-radius:.6mm}
+.tag{display:inline-block;font-size:6.8pt;color:var(--sage-d);font-weight:600;margin-right:2mm}
+code{font-family:'JBM',monospace;font-size:.9em;background:var(--sage-p);padding:0 .8mm;border-radius:.6mm}
+
+/* key–value rows: the main way text is structured */
+.kv{display:grid;grid-template-columns:var(--kw,14mm) 1fr;gap:1.5mm 3mm;align-items:baseline}
+.kv dt{font-size:7pt;font-weight:700;color:var(--sage-d);white-space:nowrap}
+.kv dd{font-size:7.9pt;line-height:1.5}
 
 /* ---------- inner page frame ---------- */
 .rail{position:absolute;left:0;top:0;bottom:0;width:15mm;background:var(--char)}
@@ -55,15 +59,19 @@ code,.code{font-family:'JBM',monospace;font-size:.92em;background:var(--sage-p);
   color:var(--side-mute);font-size:6.2pt;letter-spacing:.34em;font-weight:600;white-space:nowrap}
 .rail .pn{position:absolute;left:50%;bottom:11mm;transform:translateX(-50%);width:8mm;height:8mm;border-radius:50%;
   background:var(--sage);color:var(--char-2);display:grid;place-items:center;font-weight:700;font-size:7.4pt}
-.body{position:absolute;left:15mm;right:0;top:0;bottom:0;padding:14mm 13mm 11mm 12mm}
-.ph{position:relative;margin-bottom:6.5mm;max-width:150mm}
-.ph .en{color:var(--sage-d)}
-.ph h2{font-size:19pt;font-weight:800;letter-spacing:-.015em;line-height:1.25;margin-top:1.3mm}
-.ph .lead{color:var(--mute);margin-top:1.8mm;font-size:8.6pt;line-height:1.6}
+.body{position:absolute;left:15mm;right:0;top:0;bottom:0;padding:15mm 13mm 11mm 12mm}
+.ph{position:relative;margin-bottom:7mm;max-width:150mm}
+.ph h2{font-size:20pt;font-weight:800;letter-spacing:-.015em;line-height:1.25}
+.ph .lead{color:var(--mute);margin-top:1.6mm;font-size:9pt}
 .deco-a{width:48mm;height:48mm;right:-21mm;top:-22mm}
 .deco-b{width:15mm;height:15mm;right:24mm;top:-7.5mm;background:var(--char)}
 .deco-c{width:6mm;height:6mm;right:14mm;top:13mm;background:var(--sage)}
-.gap{height:6mm}
+.gap{height:7mm}
+.card{border:.28mm solid var(--line);border-radius:2.6mm;padding:3.4mm 3.8mm;background:#fff}
+.card h4{font-size:9.2pt;font-weight:700;line-height:1.35}
+.card p{font-size:7.9pt;color:#4a4a47;line-height:1.5}
+.ico{width:7mm;height:7mm;border-radius:50%;background:var(--char);display:grid;place-items:center;flex:none}
+.ico svg{width:4mm;height:4mm}
 
 /* ================= PAGE 1 ================= */
 .p1 .side{position:absolute;left:9mm;top:0;bottom:0;width:70mm;background:var(--char);color:var(--side-ink);overflow:hidden;z-index:2}
@@ -74,42 +82,40 @@ code,.code{font-family:'JBM',monospace;font-size:.92em;background:var(--sage-p);
 .p1 .avatar .mono{font-size:6.2pt;letter-spacing:.32em;color:var(--sage-l)}
 .p1 .who{position:absolute;left:9mm;right:9mm;top:76mm}
 .p1 .who h1{font-size:23pt;font-weight:800;color:#fff;letter-spacing:.02em;line-height:1.1}
-.p1 .who .en{color:var(--sage);margin-top:1.6mm;display:block}
-.p1 .who .role{margin-top:4.2mm;font-size:9.6pt;font-weight:600;color:#fff}
-.p1 .who .role-sub{font-size:7.3pt;color:var(--side-mute);margin-top:.4mm}
-.p1 .tl{position:absolute;left:9mm;right:8mm;top:114mm}
-.p1 .tl section{position:relative;padding-left:6mm;padding-bottom:5.2mm}
-.p1 .tl section::before{content:"";position:absolute;left:1.05mm;top:2.6mm;bottom:0;width:.25mm;background:#6c6c67}
+.p1 .who .en{font-size:6.4pt;letter-spacing:.28em;font-weight:600;color:var(--sage);margin-top:1.6mm;display:block}
+.p1 .who .role{margin-top:4.2mm;font-size:10pt;font-weight:600;color:#fff}
+.p1 .who .role-sub{font-size:7.6pt;color:var(--side-mute);margin-top:.4mm}
+.p1 .tl{position:absolute;left:9mm;right:8mm;top:116mm}
+.p1 .tl section{position:relative;padding-left:6mm;padding-bottom:6mm}
+.p1 .tl section::before{content:"";position:absolute;left:1.05mm;top:2.8mm;bottom:0;width:.25mm;background:#6c6c67}
 .p1 .tl section:last-child::before{display:none}
-.p1 .tl h3{color:#fff;margin-bottom:1.4mm;position:relative;font-size:6.4pt}
-.p1 .tl h3::before{content:"";position:absolute;left:-6mm;top:.2mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--sage);box-shadow:0 0 0 .8mm var(--char)}
-.p1 .tl b{display:block;font-weight:600;font-size:8pt;color:#fff;line-height:1.45}
-.p1 .tl span{display:block;font-size:7.1pt;color:var(--side-mute);line-height:1.5}
-.p1 .tl .note{margin-top:1mm;color:var(--sage-l);font-size:6.9pt}
+.p1 .tl h3{color:var(--sage-l);margin-bottom:1.2mm;position:relative;font-size:7.4pt;font-weight:700}
+.p1 .tl h3::before{content:"";position:absolute;left:-6mm;top:.6mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--sage);box-shadow:0 0 0 .8mm var(--char)}
+.p1 .tl b{display:block;font-weight:600;font-size:8.4pt;color:#fff;line-height:1.45}
+.p1 .tl span{display:block;font-size:7.5pt;color:var(--side-mute);line-height:1.5}
 .p1 .side .ring{border-color:rgba(239,238,232,.55)}
-.p1 .side-foot{position:absolute;left:9mm;right:9mm;bottom:10mm;display:flex;align-items:center;gap:2.4mm;color:var(--side-mute);font-size:6.6pt}
+.p1 .side-foot{position:absolute;left:9mm;right:9mm;bottom:10mm;display:flex;align-items:center;gap:2.4mm;color:var(--side-mute);font-size:6.8pt}
 .p1 .side-foot svg{width:4.2mm;height:4.2mm}
 
 .p1 main{position:absolute;left:79mm;right:0;top:0;bottom:0;padding:15mm 14mm 0 11mm}
-.p1 .kicker{display:flex;align-items:center;gap:2.4mm;font-size:7pt;color:var(--mute);margin-bottom:9mm}
-.p1 .kicker .pill{background:var(--char);color:#fff;border-radius:99mm;padding:.4mm 2.6mm;font-weight:600;font-size:6.8pt}
-.p1 .headline{font-size:14.2pt;font-weight:700;line-height:1.38;letter-spacing:-.015em;margin-bottom:3.4mm}
+.p1 .kicker{display:flex;align-items:center;gap:2.4mm;font-size:7.4pt;color:var(--mute);margin-bottom:9mm}
+.p1 .kicker .pill{background:var(--char);color:#fff;border-radius:99mm;padding:.4mm 2.6mm;font-weight:600;font-size:7pt}
+.p1 .headline{font-size:15pt;font-weight:700;line-height:1.38;letter-spacing:-.015em;margin-bottom:4.4mm}
 .p1 .headline em{font-style:normal;background:linear-gradient(transparent 62%,var(--sage-l) 62%)}
-.p1 .intro{font-size:8.3pt;line-height:1.68;color:#3b3b39}
-.p1 .intro + .intro{margin-top:1.8mm}
-.p1 .nums{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm 4mm}
-.p1 .num{position:relative;padding:1.2mm 0 1.2mm 4mm}
-.p1 .num::before{content:"";position:absolute;left:0;top:1.6mm;bottom:1.6mm;width:1mm;border-radius:1mm;background:var(--sage)}
-.p1 .num .n{font-size:17pt;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--char-2)}
-.p1 .num .n small{font-size:9pt;font-weight:600;color:var(--mute);margin:0 .6mm}
-.p1 .num .l{font-size:7.1pt;color:var(--mute);line-height:1.45}
-.p1 .skills .row{display:grid;grid-template-columns:23mm 1fr;align-items:start;gap:3mm;padding:1.9mm 0;border-bottom:.25mm solid var(--line)}
-.p1 .skills .row:first-child{padding-top:0}
-.p1 .skills .lab{background:var(--sage);color:var(--char-2);border-radius:99mm;font-size:6.8pt;font-weight:700;text-align:center;padding:.35mm 0;letter-spacing:.02em}
-.p1 .skills .txt{font-size:7.6pt;line-height:1.55}
+.p1 .rows .row{display:grid;grid-template-columns:21mm 1fr;align-items:center;gap:3mm;padding:1.7mm 0;border-bottom:.25mm solid var(--line)}
+.p1 .rows .row:first-child{padding-top:0}
+.p1 .rows .lab{background:var(--sage);color:var(--char-2);border-radius:99mm;font-size:7pt;font-weight:700;text-align:center;padding:.35mm 0}
+.p1 .rows.dark .lab{background:var(--char);color:#fff}
+.p1 .rows .txt{font-size:8.1pt;line-height:1.5}
+.p1 .nums{display:grid;grid-template-columns:1fr 1fr;gap:3.4mm 4mm}
+.p1 .num{position:relative;padding:.8mm 0 .8mm 4mm}
+.p1 .num::before{content:"";position:absolute;left:0;top:1.4mm;bottom:1.4mm;width:1mm;border-radius:1mm;background:var(--sage)}
+.p1 .num .n{font-size:18pt;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--char-2)}
+.p1 .num .n small{font-size:9.5pt;font-weight:600;color:var(--mute);margin:0 .6mm}
+.p1 .num .l{font-size:7.6pt;color:var(--mute)}
 .p1 .contact{position:absolute;right:0;bottom:11mm;width:99mm;background:var(--sage);padding:7mm 10mm 6.5mm 13mm;z-index:3}
-.p1 .contact .lab{display:inline-block;border:.3mm solid var(--char-2);border-radius:99mm;padding:.3mm 4mm;font-size:6.6pt;letter-spacing:.3em;font-weight:700;margin-bottom:3.6mm}
-.p1 .contact li{list-style:none;display:flex;align-items:center;gap:2.6mm;font-size:8pt;font-weight:500;color:var(--char-2);margin-bottom:1.7mm}
+.p1 .contact .lab{display:inline-block;border:.3mm solid var(--char-2);border-radius:99mm;padding:.3mm 4mm;font-size:7.4pt;font-weight:700;margin-bottom:3.6mm}
+.p1 .contact li{list-style:none;display:flex;align-items:center;gap:2.6mm;font-size:8.4pt;font-weight:500;color:var(--char-2);margin-bottom:1.7mm}
 .p1 .contact li:last-child{margin-bottom:0}
 .p1 .contact i{width:5.2mm;height:5.2mm;border-radius:50%;background:var(--char-2);display:grid;place-items:center;flex:none}
 .p1 .contact i svg{width:3mm;height:3mm}
@@ -118,166 +124,198 @@ code,.code{font-family:'JBM',monospace;font-size:.92em;background:var(--sage-p);
 
 /* ================= PAGE 2 ================= */
 .surf{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
-.card{border:.28mm solid var(--line);border-radius:2.6mm;padding:3.4mm 3.8mm;background:#fff}
-.card h4{font-size:8.8pt;font-weight:700;line-height:1.35}
-.card p{font-size:7.4pt;color:#4a4a47;line-height:1.55}
-.ico{width:7mm;height:7mm;border-radius:50%;background:var(--char);display:grid;place-items:center;flex:none}
-.ico svg{width:4mm;height:4mm}
 .surf .card .top{display:flex;align-items:center;gap:2.4mm;margin-bottom:1.6mm}
 .hub{display:grid;grid-template-columns:68mm 26mm 1fr;gap:3.5mm;align-items:stretch}
 .hub .grp{margin-top:1.8mm}
-.hub .grp .gl{font-size:6.4pt;font-weight:700;color:var(--sage-d);letter-spacing:.06em;margin-bottom:.7mm}
+.hub .grp .gl{font-size:6.8pt;font-weight:700;color:var(--sage-d);margin-bottom:.7mm}
 .hub .core{position:relative;display:flex;align-items:center;justify-content:center}
 .hub .core::before{content:"";position:absolute;left:-3.5mm;right:-3.5mm;top:50%;height:.3mm;background:var(--char)}
 .hub .core .c{position:relative;width:26mm;height:26mm;border-radius:50%;background:var(--char);color:#fff;
   display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 1.2mm #fff,0 0 0 1.55mm var(--sage)}
-.hub .core .c b{font-size:9pt;font-weight:700;line-height:1.2;text-align:center}
-.hub .core .c span{font-size:6pt;color:var(--sage-l);margin-top:.8mm;letter-spacing:.06em}
+.hub .core .c b{font-size:9.4pt;font-weight:700;line-height:1.2;text-align:center}
+.hub .core .c span{font-size:6.2pt;color:var(--sage-l);margin-top:.8mm}
 .hub .right{display:flex;flex-direction:column;gap:3.5mm}
-.legend{font-size:6.5pt;color:var(--mute);display:flex;align-items:center;gap:1.4mm;margin-top:1mm}
+.legend{font-size:6.8pt;color:var(--mute);display:flex;align-items:center;gap:1.4mm;margin-top:1mm}
 .legend i{display:inline-block;width:3.2mm;height:2.2mm;border-radius:99mm;background:var(--sage-p);border:.25mm solid var(--sage)}
 .cando{display:grid;grid-template-columns:repeat(4,1fr);gap:3.5mm}
 .cando .card{border-top:1.1mm solid var(--sage);border-radius:0 0 2.6mm 2.6mm;padding-top:3mm}
-.cando .k{font-family:'JBM',monospace;font-size:7pt;color:var(--sage-d);font-weight:600}
-.cando h4{margin:.6mm 0 1.2mm}
+.num-k{font-family:'JBM',monospace;font-size:7.2pt;color:var(--sage-d);font-weight:600}
+.cando h4{margin:.4mm 0 1mm}
 .time{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:3mm;padding-top:5mm}
 .time::before{content:"";position:absolute;left:1mm;right:1mm;top:1.6mm;height:.3mm;background:var(--char)}
 .time .t{position:relative}
 .time .t::before{content:"";position:absolute;left:0;top:-4.6mm;width:2.6mm;height:2.6mm;border-radius:50%;background:#fff;border:.45mm solid var(--char)}
 .time .t.now::before{background:var(--sage);border-color:var(--sage-d);box-shadow:0 0 0 1mm var(--sage-p)}
-.time .d{font-family:'JBM',monospace;font-size:6.6pt;color:var(--sage-d);font-weight:600}
-.time p{font-size:7.3pt;line-height:1.5;margin-top:.5mm}
+.time .d{font-family:'JBM',monospace;font-size:7pt;color:var(--sage-d);font-weight:600}
+.time p{font-size:7.9pt;line-height:1.45;margin-top:.5mm}
 .time .t.now p{font-weight:600}
 
 /* ================= PAGE 3 ================= */
 .flow{display:grid;grid-template-columns:1fr 4mm 1fr 4mm 1fr 4mm 1fr 4mm 1fr;align-items:stretch}
-.flow .n{border:.28mm solid var(--line);border-radius:2.4mm;padding:2.6mm 2.6mm 2.8mm;background:#fff}
+.flow.f4{grid-template-columns:1fr 4mm 1fr 4mm 1fr 4mm 1fr}
+.flow .n{border:.28mm solid var(--line);border-radius:2.4mm;padding:2.6mm 2.8mm 2.8mm;background:#fff}
 .flow .n.dark{background:var(--char);border-color:var(--char);color:#fff}
 .flow .n.dark p{color:var(--side-mute)}
 .flow .n.sage{background:var(--sage-p);border-color:var(--sage)}
-.flow .n .s{font-family:'JBM',monospace;font-size:6.4pt;color:var(--sage-d);font-weight:600}
+.flow .n .s{font-family:'JBM',monospace;font-size:6.8pt;color:var(--sage-d);font-weight:600}
 .flow .n.dark .s{color:var(--sage)}
-.flow .n h4{font-size:8.1pt;font-weight:700;line-height:1.3;margin:.5mm 0 .9mm}
-.flow .n p{font-size:6.9pt;line-height:1.5;color:#4a4a47}
+.flow .n h4{font-size:8.6pt;font-weight:700;line-height:1.3;margin:.4mm 0 .8mm}
+.flow .n p{font-size:7.4pt;line-height:1.45;color:#4a4a47}
 .flow .ar{display:flex;align-items:center;justify-content:center}
 .flow .ar::after{content:"";width:0;height:0;border-left:1.8mm solid var(--char);border-top:1.3mm solid transparent;border-bottom:1.3mm solid transparent}
-.api{margin-top:3mm;display:flex;flex-wrap:wrap;align-items:center;gap:1.2mm 1.6mm;font-size:7pt;color:var(--mute)}
+.api{margin-top:3mm;display:grid;grid-template-columns:17mm 1fr;row-gap:1.2mm;align-items:center}
+.api .lbl{font-weight:700;font-size:7.4pt}
+.api .row{display:flex;flex-wrap:wrap;gap:1.4mm}
 .api .chip{margin:0}
-.api .lbl{font-weight:700;color:var(--char);margin-right:.6mm}
-table.t{width:100%;border-collapse:collapse;font-size:7.1pt;line-height:1.5}
-table.t th{text-align:left;font-size:6.4pt;letter-spacing:.12em;color:var(--mute);font-weight:700;padding:0 2mm 1.4mm 0;border-bottom:.35mm solid var(--char)}
-table.t td{vertical-align:top;padding:2mm 2.4mm 2mm 0;border-bottom:.25mm solid var(--line)}
-table.t td:first-child b{font-size:8pt;display:block}
-table.t td:first-child .mono{font-size:6.5pt;color:var(--sage-d)}
-.two{display:grid;grid-template-columns:96mm 1fr;gap:4.5mm}
-.log{background:var(--char-2);color:#e7e6df;border-radius:2.6mm;padding:3.6mm 4mm;font-family:'JBM','Pretendard',monospace;font-size:6.5pt;line-height:1.75}
+table.t{width:100%;border-collapse:collapse;font-size:7.6pt;line-height:1.45}
+table.t th{text-align:left;font-size:7pt;color:var(--mute);font-weight:700;padding:0 2mm 1.4mm 0;border-bottom:.35mm solid var(--char)}
+table.t td{vertical-align:top;padding:1.9mm 2.4mm 1.9mm 0;border-bottom:.25mm solid var(--line)}
+table.t td:first-child b{font-size:8.6pt;display:block}
+table.t td:first-child .mono{font-size:6.6pt;color:var(--sage-d)}
+.two{display:grid;grid-template-columns:96mm 1fr;gap:5mm}
+.log{background:var(--char-2);color:#e7e6df;border-radius:2.6mm;padding:3.6mm 4mm;font-family:'JBM','Pretendard',monospace;font-size:6.7pt;line-height:1.75}
 .log .h{color:var(--sage);font-weight:600;margin-bottom:1.4mm;display:flex;justify-content:space-between}
 .log .r{display:grid;grid-template-columns:12.5mm 11mm 1fr;gap:1.2mm}
 .log .ts{color:#8d8d86}
 .log .k{color:var(--sage-l)}
 .log .ok{color:#d8e6a8;font-weight:600}
-.log .cap{margin-top:2mm;padding-top:1.8mm;border-top:.25mm dashed #5b5b57;color:#a9a9a1;font-family:'Pretendard',sans-serif;font-size:6.6pt;line-height:1.55}
+.log .cap{margin-top:2mm;padding-top:1.8mm;border-top:.25mm dashed #5b5b57;color:#a9a9a1;font-family:'Pretendard',sans-serif;font-size:7pt}
 ul.chk{list-style:none}
-ul.chk li{position:relative;padding-left:4.4mm;font-size:7.3pt;line-height:1.55;margin-bottom:1.5mm}
+ul.chk li{position:relative;padding-left:4.4mm;font-size:7.9pt;line-height:1.5;margin-bottom:1.7mm}
 ul.chk li::before{content:"";position:absolute;left:.3mm;top:1.25mm;width:2.2mm;height:1.2mm;border-left:.45mm solid var(--sage-d);border-bottom:.45mm solid var(--sage-d);transform:rotate(-45deg)}
-.status{margin-top:2.4mm;font-size:7pt;color:var(--mute);border-left:.8mm solid var(--sage);padding-left:2.4mm;line-height:1.55}
-.band{background:var(--sage-p);border-radius:2.6mm;padding:3.6mm 4.4mm;display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
-.band .k{font-family:'JBM',monospace;font-size:6.6pt;color:var(--sage-d);font-weight:600}
-.band p{font-size:7.5pt;line-height:1.55;margin-top:.5mm}
-
-.api{display:grid;grid-template-columns:17mm 1fr;row-gap:1.4mm;align-items:center}
-.api .row{display:flex;flex-wrap:wrap;align-items:center;gap:1.4mm}
-.flow.f4{grid-template-columns:1fr 4mm 1fr 4mm 1fr 4mm 1fr}
-.flow.f4 .n{padding:2.2mm 2.8mm 2.4mm}
-.p3 .gap{height:4mm}
-.p3 .ph{margin-bottom:5mm}
-.p3 table.t td{padding:1.6mm 2.4mm 1.6mm 0}
-.p3 .sh{margin-bottom:2.6mm}
+.status{margin-top:2.6mm;font-size:7.6pt;font-weight:600;border-left:.8mm solid var(--sage);padding-left:2.4mm}
+.band{background:var(--sage-p);border-radius:2.6mm;padding:3.6mm 4.4mm;display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;align-items:center}
+.band div{display:flex;gap:2.4mm;align-items:baseline}
+.band p{font-size:8pt;font-weight:600;line-height:1.45}
 
 /* ================= PAGE 4 ================= */
-.stack{display:grid;grid-template-columns:1fr 58mm;gap:5mm;align-items:stretch}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
+.case{border:.28mm solid var(--line);border-radius:2.6mm;padding:4mm 4.4mm 4mm}
+.case .hd{display:flex;align-items:baseline;gap:2.4mm;margin-bottom:.6mm}
+.case .no{font-family:'JBM',monospace;font-size:7.4pt;color:var(--sage-d);font-weight:600}
+.case h4{font-size:10.4pt;font-weight:700;line-height:1.35}
+.case .tags{margin-bottom:2.6mm}
+.case dl{display:grid;grid-template-columns:11mm 1fr;gap:1.8mm 2.4mm}
+.case dt{font-size:6.8pt;font-weight:700;color:#fff;background:var(--char);border-radius:99mm;text-align:center;height:4.1mm;line-height:4.1mm;margin-top:.1mm}
+.case dt.r{background:var(--sage);color:var(--char-2)}
+.case dd{font-size:7.9pt;line-height:1.5}
+.stack{display:grid;grid-template-columns:1fr 54mm;gap:5mm;align-items:center}
 .stack .lvls{display:flex;flex-direction:column;gap:1.4mm}
-.lv{display:grid;grid-template-columns:27mm 1fr;align-items:center;border-radius:1.8mm;padding:2.3mm 3.6mm;font-size:7.4pt;line-height:1.45}
-.lv b{font-size:8pt}
-.lv.a{background:var(--char);color:#fff;margin-left:0}
+.lv{display:grid;grid-template-columns:27mm 1fr;align-items:center;border-radius:1.8mm;padding:2.3mm 3.6mm;font-size:7.8pt;line-height:1.45}
+.lv b{font-size:8.4pt}
+.lv.a{background:var(--char);color:#fff}
 .lv.a span{color:#d9d8d1}
 .lv.b{background:var(--sage);color:var(--char-2);margin-left:6mm}
 .lv.c{background:var(--sage-l);color:var(--char-2);margin-left:12mm}
 .lv.d{background:var(--sage-p);color:var(--char-2);margin-left:18mm;border:.25mm solid var(--sage-l)}
-.stack .note{border-left:.8mm solid var(--sage);padding:1mm 0 1mm 3.4mm;font-size:7.3pt;line-height:1.6;color:#3f3f3c;align-self:center}
-.stack .note b{display:block;font-size:8pt;margin-bottom:.8mm;color:var(--ink)}
-.mini{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
-.mini .card h4{margin-bottom:.3mm}
-.mini .card .tags{margin-bottom:1.1mm}
-.ocard{display:flex;flex-direction:column}
-.ocard .tags{margin:.4mm 0 1.6mm}
-.ocard .bul li{font-size:7.3pt;margin-bottom:1mm}
-.ofig{margin-top:auto;padding-top:2.4mm}
-.ofig img{width:100%;display:block;border-radius:1.6mm;border:.25mm solid var(--line)}
-.ofig.cert img{width:38mm;margin:0 auto}
-.ofig figcaption{font-size:6.5pt;color:var(--mute);margin-top:1mm;line-height:1.45}
-.ofig.cert figcaption{text-align:center}
-.cases{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
-.case{border:.28mm solid var(--line);border-radius:2.6mm;padding:4mm 4.4mm 3.8mm;display:flex;flex-direction:column}
-.case .hd{display:flex;align-items:baseline;gap:2.4mm;margin-bottom:.8mm}
-.case .no{font-family:'JBM',monospace;font-size:7.2pt;color:var(--sage-d);font-weight:600}
-.case h4{font-size:10pt;font-weight:700;line-height:1.35}
-.case .tags{margin-bottom:2.4mm}
-.case dl{display:grid;grid-template-columns:11mm 1fr;gap:1.6mm 2.4mm}
-.case dt{font-size:6.6pt;font-weight:700;color:#fff;background:var(--char);border-radius:99mm;text-align:center;height:4mm;line-height:4mm;margin-top:.2mm}
-.case dt.r{background:var(--sage);color:var(--char-2)}
-.case dd{font-size:7.5pt;line-height:1.58}
-.small{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
-.quote{border-left:1mm solid var(--char);padding:1mm 0 1mm 3.6mm;font-size:7.6pt;line-height:1.6}
-.quote b{display:block;font-size:8.4pt;margin-bottom:.6mm}
+.note{border-left:.8mm solid var(--sage);padding:1mm 0 1mm 3.4mm;font-size:7.8pt;line-height:1.55}
+.note b{display:block;font-size:8.6pt;margin-bottom:.8mm}
+.small{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.bul{list-style:none}
+.bul li{position:relative;padding-left:3.6mm;font-size:7.9pt;line-height:1.5;margin-bottom:1.4mm}
+.bul li::before{content:"";position:absolute;left:.4mm;top:1.7mm;width:1.4mm;height:1.4mm;border-radius:50%;background:var(--sage-d)}
 
 /* ================= PAGE 5 ================= */
 .proj{border:.28mm solid var(--line);border-radius:2.8mm;overflow:hidden}
-.proj .bar{background:var(--char);color:#fff;padding:3.4mm 4.6mm;display:flex;justify-content:space-between;align-items:flex-end;gap:4mm}
-.proj .bar .en{color:var(--sage)}
-.proj .bar h3{font-size:11.5pt;font-weight:700;line-height:1.3;margin-top:.6mm}
-.proj .bar .lk{font-family:'JBM',monospace;font-size:6.3pt;color:var(--sage-l);text-align:right;line-height:1.6;white-space:nowrap}
-.proj .in{padding:3.8mm 4.6mm 4mm}
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:3mm 5mm}
-.step{position:relative;padding-left:5mm}
-.step .sn{position:absolute;left:0;top:.3mm;width:3.4mm;height:3.4mm;border-radius:50%;background:var(--sage);color:var(--char-2);font-size:5.8pt;font-weight:700;display:grid;place-items:center}
-.step h5{font-size:8.2pt;font-weight:700;margin-bottom:.5mm}
-.step p{font-size:7.3pt;line-height:1.56;color:#3f3f3c}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);margin:3.6mm 0 3.4mm;border-top:.25mm solid var(--line);border-bottom:.25mm solid var(--line)}
-.stats div{padding:2.2mm 2mm 2mm 3mm;border-left:.25mm solid var(--line)}
-.stats div:first-child{border-left:0;padding-left:0}
-.stats .n{font-size:13pt;font-weight:800;letter-spacing:-.02em;line-height:1.2}
-.stats .n small{font-size:8pt;color:var(--mute);font-weight:600}
-.stats .l{font-size:6.7pt;color:var(--mute);line-height:1.4}
-.figs{display:grid;grid-template-columns:62mm 1fr;gap:4mm;align-items:end}
-.figs.v17{grid-template-columns:1.68fr 2.16fr;align-items:start}
+.proj .bar{background:var(--char);color:#fff;padding:3.4mm 4.6mm;display:flex;justify-content:space-between;align-items:center;gap:4mm}
+.proj .bar h3{font-size:12pt;font-weight:700;line-height:1.3}
+.proj .bar .lk{font-family:'JBM',monospace;font-size:6.5pt;color:var(--sage-l);text-align:right;line-height:1.6;white-space:nowrap}
+.proj .in{padding:3.8mm 4.6mm 4.2mm}
+table.st{width:100%;border-collapse:collapse}
+table.st td{vertical-align:middle;padding:2mm 3mm 2mm 0;border-bottom:.25mm solid var(--line);font-size:7.9pt;line-height:1.45}
+table.st tr:first-child td{padding-top:0}
+table.st td.k{width:21mm;font-weight:700;font-size:8.4pt;white-space:nowrap}
+table.st td.k .sn{display:inline-grid;place-items:center;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--sage);color:var(--char-2);font-size:6pt;font-weight:700;margin-right:1.4mm;vertical-align:.2mm}
+table.st td.r{width:43mm;padding-right:0;text-align:right}
+table.st td.r b{display:block;font-size:12pt;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+table.st td.r span{font-size:6.9pt;color:var(--mute)}
+.figs{display:grid;gap:4mm;align-items:start;margin-top:3.6mm}
+.figs.v17{grid-template-columns:1.68fr 2.16fr}
+.figs.half{grid-template-columns:1fr 1fr}
+.figs figure img,figure.wide img,.ofig img{width:100%;display:block;border-radius:1.6mm;border:.25mm solid var(--line)}
+.figs figcaption,figure.wide figcaption,.ofig figcaption{font-size:7pt;color:var(--mute);margin-top:1mm;line-height:1.4}
 figure.wide{margin-top:3.6mm}
-figure.wide img{width:100%;display:block;border-radius:1.6mm;border:.25mm solid var(--line)}
-figure.wide figcaption{font-size:6.5pt;color:var(--mute);margin-top:1mm;line-height:1.45}
-.figs figure img{width:100%;display:block;border-radius:1.6mm;border:.25mm solid var(--line)}
-.figs figcaption{font-size:6.5pt;color:var(--mute);margin-top:1mm;line-height:1.45}
-.bul{list-style:none}
-.bul li{position:relative;padding-left:3.6mm;font-size:7.5pt;line-height:1.58;margin-bottom:1.2mm}
-.bul li::before{content:"";position:absolute;left:.4mm;top:1.65mm;width:1.4mm;height:1.4mm;border-radius:50%;background:var(--sage-d)}
 
 /* ================= PAGE 6 ================= */
-table.fit{width:100%;border-collapse:collapse;font-size:7.15pt;line-height:1.48}
-table.fit th{text-align:left;font-size:6.3pt;letter-spacing:.12em;color:var(--mute);font-weight:700;padding:0 2mm 1.3mm 0;border-bottom:.35mm solid var(--char)}
-table.fit td{vertical-align:top;padding:1.45mm 2.4mm 1.45mm 0;border-bottom:.25mm solid var(--line)}
-table.fit td.pg{font-family:'JBM',monospace;font-size:6.4pt;color:var(--sage-d);white-space:nowrap;padding-right:0;text-align:right}
-table.fit tr.grp td{border-bottom:0;padding:2.6mm 0 .8mm}
-table.fit tr.grp span{display:inline-block;background:var(--char);color:#fff;border-radius:99mm;padding:.2mm 2.6mm;font-size:6.5pt;font-weight:700;letter-spacing:.08em}
-table.fit td.q{width:62mm;color:#4a4a47}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
+.mini .card .tags{margin:.4mm 0 1.2mm}
 .others{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
-.others .card h4{margin-bottom:.4mm}
-.others .card .tags{margin-bottom:1.2mm}
-.close{position:relative;background:var(--char);color:#fff;border-radius:2.8mm;padding:5.4mm 6mm 5mm;overflow:hidden}
-.close .en{color:var(--sage)}
-.close h3{font-size:11.5pt;font-weight:700;margin:1mm 0 2mm;line-height:1.35}
-.close p{font-size:7.9pt;line-height:1.68;color:#dddcd5;max-width:128mm}
-.close .ct{display:flex;gap:5mm;margin-top:3.2mm;font-family:'JBM','Pretendard',monospace;font-size:6.9pt;color:var(--sage-l)}
+.ocard{display:flex;flex-direction:column}
+.ocard .tags{margin:.4mm 0 2mm}
+.ofig{margin-top:auto;padding-top:3mm}
+.ofig.cert img{width:36mm;margin:0 auto}
+.ofig.cert figcaption{text-align:center}
+
+/* ================= PAGE 7 ================= */
+table.fit{width:100%;border-collapse:collapse;font-size:7.8pt;line-height:1.45}
+table.fit th{text-align:left;font-size:7pt;color:var(--mute);font-weight:700;padding:0 2mm 1.4mm 0;border-bottom:.35mm solid var(--char)}
+table.fit td{vertical-align:top;padding:1.8mm 2.4mm 1.8mm 0;border-bottom:.25mm solid var(--line)}
+table.fit td.pg{font-family:'JBM',monospace;font-size:6.8pt;color:var(--sage-d);white-space:nowrap;padding-right:0;text-align:right}
+table.fit tr.grp td{border-bottom:0;padding:3mm 0 .8mm}
+table.fit tr.grp span{display:inline-block;background:var(--char);color:#fff;border-radius:99mm;padding:.2mm 2.8mm;font-size:7pt;font-weight:700}
+table.fit td.q{width:62mm;color:#4a4a47}
+.close{position:relative;background:var(--char);color:#fff;border-radius:2.8mm;padding:5.6mm 6mm 5.4mm;overflow:hidden}
+.close h3{font-size:12pt;font-weight:700;margin-bottom:3.4mm;line-height:1.35}
+.close .kv{--kw:20mm;max-width:130mm}
+.close .kv dt{color:var(--sage)}
+.close .kv dd{color:#e4e3dc;font-size:8.2pt}
+.close .ct{display:flex;gap:5mm;margin-top:4mm;font-family:'JBM','Pretendard',monospace;font-size:7pt;color:var(--sage-l)}
 .close .ring{border-color:rgba(163,172,132,.6);width:44mm;height:44mm;right:-12mm;top:-14mm}
 .close .disc{width:12mm;height:12mm;right:22mm;bottom:-6mm;background:var(--sage)}
+
+/* ---------- per-page scale-up: less text, so give it room ---------- */
+.p1 .gap{height:9mm}
+.p1 .rows .row{padding:2.2mm 0}
+.p1 .nums{gap:4.2mm 4mm}
+
+.p4 .gap{height:10mm}
+.p4 .case{padding:5mm 5.2mm}
+.p4 .case h4{font-size:11.4pt}
+.p4 .case .tags{margin-bottom:3.4mm}
+.p4 .case dl{gap:2.8mm 2.8mm;grid-template-columns:12mm 1fr}
+.p4 .case dt{font-size:7.2pt;height:4.6mm;line-height:4.6mm}
+.p4 .case dd{font-size:8.7pt}
+.p4 .lv{padding:3.4mm 4.2mm;font-size:8.5pt}
+.p4 .lv b{font-size:9pt}
+.p4 .stack .lvls{gap:2mm}
+.p4 .note{font-size:8.5pt}
+.p4 .note b{font-size:9.2pt}
+.p4 .bul li{font-size:8.6pt;margin-bottom:2mm}
+
+.p5 .proj .in{padding:5mm 5.2mm 5.4mm}
+.p5 table.st td{padding:3mm 3mm 3mm 0;font-size:8.7pt}
+.p5 table.st td.k{font-size:9.2pt;width:24mm}
+.p5 table.st td.r b{font-size:13.5pt}
+.p5 table.st td.r span{font-size:7.4pt}
+.p5 .figs{margin-top:6mm}
+.p5 figure.wide{margin-top:6mm}
+.p5 .figs figcaption,.p5 figure.wide figcaption{font-size:7.6pt}
+
+.p6 .gap{height:9mm}
+.p6 .proj .in{padding:4.6mm 5.2mm 5mm}
+.p6 .kv{gap:2.4mm 3.4mm;--kw:16mm}
+.p6 .kv dt{font-size:7.6pt}
+.p6 .kv dd{font-size:8.7pt}
+.p6 .card{padding:4.6mm 5mm}
+.p6 .card h4{font-size:10pt}
+.p6 .mini p{font-size:8.6pt}
+.p6 .ofig{padding-top:5mm}
+.p6 .ofig.cert img{width:46mm}
+.p6 .ofig figcaption{font-size:7.4pt}
+
+.p7 .ph{margin-bottom:8mm}
+.p7 table.fit{font-size:8.5pt}
+.p7 table.fit td{padding:2.6mm 2.4mm 2.6mm 0}
+.p7 table.fit td.q{width:66mm}
+.p7 table.fit tr.grp td{padding:4mm 0 1mm}
+.p7 table.fit td.pg{font-size:7.4pt}
+.p7 .gap{height:10mm}
+.p7 .close{padding:7mm 7mm 6.6mm}
+.p7 .close h3{font-size:13.5pt;margin-bottom:4.4mm}
+.p7 .close .kv{gap:2.4mm 3mm;--kw:22mm}
+.p7 .close .kv dt{font-size:7.8pt}
+.p7 .close .kv dd{font-size:9pt}
+.p7 .close .ct{font-size:7.6pt;margin-top:5mm}
 </style>
 </head>
 <body>
@@ -296,32 +334,30 @@ table.fit td.q{width:62mm;color:#4a4a47}
     </div>
     <div class="who">
       <h1>박원찬</h1>
-      <span class="en">Wonchan Park</span>
+      <span class="en">WONCHAN PARK</span>
       <p class="role">AI 개발 자동화 엔지니어</p>
       <p class="role-sub">Agent SDK · MCP · Game AI</p>
     </div>
     <div class="tl">
       <section>
-        <h3 class="en">Education</h3>
+        <h3>학력</h3>
         <b>한양대학교 ERICA</b>
-        <span>지능정보양자공학전공</span>
-        <span>2027년 상반기 졸업 예정</span>
+        <span>지능정보양자공학전공 · 2027 상반기 졸업 예정</span>
       </section>
       <section>
-        <h3 class="en">Certificate</h3>
-        <b>LG AIMERS 8기 LLM 과정 수료</b>
-        <span>LG AI연구원 주관 · EXAONE 경량화 해커톤</span>
+        <h3>수료</h3>
+        <b>LG AIMERS 8기 LLM 과정</b>
+        <span>EXAONE 경량화 해커톤</span>
       </section>
       <section>
-        <h3 class="en">Award</h3>
+        <h3>수상</h3>
         <b>단과대학 캡스톤 경영대회 우수상</b>
-        <span>강화학습 보드게임 에이전트 · 2인 팀</span>
+        <span>강화학습 보드게임 에이전트</span>
       </section>
       <section>
-        <h3 class="en">Playing</h3>
+        <h3>즐기는 게임</h3>
         <b>몬스터 헌터 · 엘든 링 · 세키로</b>
         <span>Darkest Dungeon · Slay the Spire</span>
-        <span class="note">보스 패턴을 외우는 일은 모방학습과, 밸런스를 만지는 일은 리워드 설계와 닮았습니다.</span>
       </section>
     </div>
     <div class="ring side-ring"></div>
@@ -338,35 +374,38 @@ table.fit td.q{width:62mm;color:#4a4a47}
 
     <div class="kicker"><span class="pill">크로노스튜디오 AI팀</span><span>AI 개발 자동화 엔지니어 지원</span></div>
 
-    <div class="sh"><span class="dot"></span><span class="t">PERSONAL PROFILE</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">프로필</span><span class="rule"></span></div>
     <p class="headline">Claude Code에 일을 시키다 막히면,<br><em>막힌 곳을 도구로 만듭니다.</em></p>
-    <p class="intro">게임을 분석하며 플레이하던 유저에서 출발해 강화학습 에이전트와 LLM 경량화를 거쳤고, 지금은 에이전트가 일하는 환경 자체를 만들고 있습니다.</p>
-    <p class="intro">PC의 Claude Code에 MCP 서버 23개를 붙여 쓰고, 반복되는 일은 Claude Agent SDK로 만든 에이전트 팀 4개(에셋·기획·보고서·백엔드)에 맡깁니다. 모델이 옛 API로 답하면 최신 문서를 찾아 주는 MCP 서버를 만들었고, 새 PC 세팅이 번거로워 설치부터 실제 기동 검증까지 하는 부트스트랩을 만들었습니다.</p>
-
-    <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">KEY NUMBERS</span><span class="rule"></span></div>
-    <div class="nums">
-      <div class="num"><div class="n">23</div><div class="l">운용 중인 MCP 서버<br>명령 한 번으로 설치·등록·검증</div></div>
-      <div class="num"><div class="n">4</div><div class="l">Agent SDK 멀티 에이전트 팀<br>팀장 1 + 역할별 서브에이전트</div></div>
-      <div class="num"><div class="n">9</div><div class="l">직접 만든 MCP 서버<br>도구 서버 5 + 에이전트 팀 4</div></div>
-      <div class="num"><div class="n">49<small>+</small></div><div class="l">matail.party PR<br>대부분 Claude Code 브랜치에서 작업</div></div>
-      <div class="num"><div class="n">24.4<small>→</small>48.8</div><div class="l">Streams AI 평균 점수<br>사람과 같은 정보 조건, 사람 평균 31.3</div></div>
-      <div class="num"><div class="n">1,346</div><div class="l">직접 만든 웹앱으로 모은<br>사람 플레이 데이터(게임 수)</div></div>
+    <div class="rows dark">
+      <div class="row"><span class="lab">출발</span><span class="txt">게임을 분석하며 플레이하던 유저</span></div>
+      <div class="row"><span class="lab">경험</span><span class="txt">강화학습 에이전트 <span class="ar-i">→</span> LLM 경량화</span></div>
+      <div class="row"><span class="lab">지금</span><span class="txt">에이전트가 일하는 환경을 만드는 중</span></div>
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">CORE SKILLS</span><span class="rule"></span></div>
-    <div class="skills">
-      <div class="row"><span class="lab">Agent · MCP</span><span class="txt">Claude Agent SDK(팀장–서브에이전트), FastMCP 서버 작성, 비동기 Job API, Tool Calling, 비용·권한 가드</span></div>
-      <div class="row"><span class="lab">AI Coding</span><span class="txt">Claude Code(CLI · Remote Control · 클라우드 세션), Skills 작성·패키징, PR 단위 작업</span></div>
-      <div class="row"><span class="lab">Full-stack</span><span class="txt">TypeScript · Astro · Cloudflare Workers / D1 / KV / Durable Objects · Flask · Supabase</span></div>
-      <div class="row"><span class="lab">Game</span><span class="txt">Unity 6(C#) · WebGL 배포 · Unity MCP · Blender MCP · three.js</span></div>
-      <div class="row"><span class="lab">ML · LLM</span><span class="txt">PyTorch · 강화학습(D3QN, afterstate TD, Gumbel AlphaZero) · LLM 경량화(GPTQ, SparseGPT)</span></div>
+    <div class="sh"><span class="dot"></span><span class="t">숫자로 보면</span><span class="rule"></span></div>
+    <div class="nums">
+      <div class="num"><div class="n">23</div><div class="l">운용 중인 MCP 서버</div></div>
+      <div class="num"><div class="n">4</div><div class="l">Agent SDK 에이전트 팀</div></div>
+      <div class="num"><div class="n">9</div><div class="l">직접 만든 MCP 서버</div></div>
+      <div class="num"><div class="n">49<small>+</small></div><div class="l">matail.party PR</div></div>
+      <div class="num"><div class="n">24.4<small>→</small>48.8</div><div class="l">Streams AI 점수 (사람 31.3)</div></div>
+      <div class="num"><div class="n">1,346</div><div class="l">직접 모은 플레이 데이터</div></div>
+    </div>
+
+    <div class="gap"></div>
+    <div class="sh"><span class="dot"></span><span class="t">핵심 기술</span><span class="rule"></span></div>
+    <div class="rows">
+      <div class="row"><span class="lab">Agent · MCP</span><span class="txt">Claude Agent SDK · FastMCP · Tool Calling · 비동기 Job</span></div>
+      <div class="row"><span class="lab">AI Coding</span><span class="txt">Claude Code (CLI · Remote Control · 클라우드) · Skills</span></div>
+      <div class="row"><span class="lab">Full-stack</span><span class="txt">TypeScript · Astro · Workers · D1 · Durable Objects · Flask</span></div>
+      <div class="row"><span class="lab">Game</span><span class="txt">Unity 6 · WebGL · Unity MCP · Blender MCP · three.js</span></div>
+      <div class="row"><span class="lab">ML · LLM</span><span class="txt">PyTorch · RL (D3QN · TD · SGAZ) · GPTQ · SparseGPT</span></div>
     </div>
   </main>
 
   <div class="contact">
-    <span class="lab">CONTACT</span>
+    <span class="lab">연락처</span>
     <ul>
       <li><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i>pow01042@naver.com</li>
       <li><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i>matail.party</li>
@@ -380,37 +419,36 @@ table.fit td.q{width:62mm;color:#4a4a47}
      PAGE 2 — MY AGENT ENVIRONMENT
      ====================================================================== -->
 <section class="page">
-  <div class="rail"><span class="v">WONCHAN PARK — AGENT ENVIRONMENT</span><span class="pn">02</span></div>
+  <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">02</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
     <header class="ph">
-      <span class="en">01 · My Agent Environment</span>
       <h2>지금 제 에이전트 환경</h2>
-      <p class="lead">PC, 휴대폰, 클라우드가 같은 Claude Code를 나눠 씁니다. 도구는 MCP로 붙이고, 반복되는 요청은 Skills로, 여러 단계짜리 일은 에이전트 팀으로 넘깁니다.</p>
+      <p class="lead">PC · 휴대폰 · 클라우드가 하나의 Claude Code를 나눠 씁니다.</p>
     </header>
 
-    <div class="sh"><span class="dot"></span><span class="t">WHERE</span><span class="ko">어디서 일하나</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">어디서 일하나</span><span class="rule"></span></div>
     <div class="surf">
       <div class="card">
         <div class="top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 6l5 5-5 5M11 17h8"/></svg></span><h4>PC · Claude Code CLI</h4></div>
-        <p>메인 작업대. MCP 서버 23개와 Unity·Blender가 함께 있어 로컬 파일과 엔진을 직접 다룹니다.</p>
+        <p>메인 작업대 · MCP 23개 · Unity / Blender</p>
       </div>
       <div class="card">
         <div class="top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg></span><h4>Remote Control</h4></div>
-        <p>PC에서 돌고 있는 세션을 데스크톱·모바일 앱에서 이어 받아 지시합니다. 자리를 비워도 작업이 멈추지 않습니다.</p>
+        <p>PC 세션을 휴대폰·데스크톱 앱에서 이어받아 지시</p>
       </div>
       <div class="card">
         <div class="top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.1 11 3.5 3.5 0 0 0 7 18z"/></svg></span><h4>클라우드 세션</h4></div>
-        <p>저장소 단위로 여러 세션을 동시에 열고, 결과는 브랜치와 PR로 받습니다. 머지는 diff를 보고 제가 정합니다.</p>
+        <p>저장소별 병렬 작업 <span class="ar-i">→</span> 브랜치 · PR로 결과</p>
       </div>
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">WHAT'S PLUGGED IN</span><span class="ko">무엇이 붙어 있나</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">무엇이 붙어 있나</span><span class="rule"></span></div>
     <div class="hub">
       <div class="card">
-        <h4>MCP 서버 23개 <span class="muted" style="font-weight:500;font-size:7pt">· PC, bootstrap으로 등록</span></h4>
+        <h4>MCP 서버 23개</h4>
         <div class="grp"><div class="gl">에이전트 팀</div>
           <span class="chip own">asset_team</span><span class="chip own">plan_team</span><span class="chip own">report_team</span><span class="chip own">backend_team</span></div>
         <div class="grp"><div class="gl">문서 · 검색 · 브라우저</div>
@@ -426,14 +464,14 @@ table.fit td.q{width:62mm;color:#4a4a47}
       <div class="core"><div class="c"><b>Claude<br>Code</b><span>OPUS · SONNET</span></div></div>
       <div class="right">
         <div class="card">
-          <h4>계정 커넥터 <span class="muted" style="font-weight:500;font-size:7pt">· 클라우드 세션에서도 그대로</span></h4>
-          <div class="grp" style="margin-top:1.8mm">
+          <h4>계정 커넥터</h4>
+          <div class="grp">
             <span class="chip">GitHub</span><span class="chip">Cloudflare</span><span class="chip">Vercel</span><span class="chip">Supabase</span><span class="chip">Figma</span><span class="chip">Canva</span><span class="chip">Gamma</span><span class="chip">Google Drive</span><span class="chip">Mobbin</span><span class="chip">Context7</span>
           </div>
         </div>
         <div class="card">
-          <h4>Skills 41개 <span class="muted" style="font-weight:500;font-size:7pt">· 반복 요청을 한 문장으로</span></h4>
-          <div class="grp" style="margin-top:1.8mm">
+          <h4>Skills 41개</h4>
+          <div class="grp">
             <span class="chip own">lecture-explainer</span><span class="chip own">research-pptx</span><span class="chip own">game-dev-coding</span><span class="chip own">pptx-design-styles</span><span class="chip own">emil-design-eng-suite (8→1)</span><span class="chip">docx · pptx · xlsx · pdf</span><span class="chip">ui-ux-pro-max</span><span class="chip">humanizer</span><span class="chip">skill-creator</span>
           </div>
           <div class="legend"><i></i>직접 만들거나 묶은 것</div>
@@ -442,22 +480,22 @@ table.fit td.q{width:62mm;color:#4a4a47}
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">WHAT IT CAN DO</span><span class="ko">이 환경으로 할 수 있는 것</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">이 환경으로 할 수 있는 것</span><span class="rule"></span></div>
     <div class="cando">
-      <div class="card"><span class="k">01</span><h4>기획 → 구현 → 검증</h4><p>기획팀이 조사해 계획서를 쓰고, 백엔드팀이 별도 브랜치에서 고치고, 보고서팀이 실행해 QA 보고서를 냅니다.</p></div>
-      <div class="card"><span class="k">02</span><h4>게임 에셋 생성</h4><p>한 줄 브리프로 픽셀아트·3D 모델·BGM을 만듭니다. 유료 호출은 정한 횟수 안에서만 나갑니다.</p></div>
-      <div class="card"><span class="k">03</span><h4>엔진까지 연결</h4><p>Tripo 3D → Blender → Unity로 에셋이 이어지고, Unity MCP로 WebGL 빌드까지 맡깁니다.</p></div>
-      <div class="card"><span class="k">04</span><h4>배포와 운영</h4><p>Cloudflare Workers·D1로 서비스를 운영하고, 고칠 것은 휴대폰에서 원격으로 지시합니다.</p></div>
+      <div class="card"><span class="num-k">01</span><h4>기획 → 구현 → 검증</h4><p>계획서 → 브랜치 개선 → QA 보고서</p></div>
+      <div class="card"><span class="num-k">02</span><h4>게임 에셋 생성</h4><p>한 줄 브리프 → 픽셀아트 · 3D · BGM</p></div>
+      <div class="card"><span class="num-k">03</span><h4>엔진까지 연결</h4><p>Tripo 3D → Blender → Unity WebGL</p></div>
+      <div class="card"><span class="num-k">04</span><h4>배포와 운영</h4><p>Workers · D1 운영, 휴대폰으로 지시</p></div>
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">WHAT I'M DOING</span><span class="ko">요즘 하고 있는 것</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">요즘 하고 있는 것</span><span class="rule"></span></div>
     <div class="time">
-      <div class="t"><span class="d">2026.09</span><p>포트폴리오 웹(three.js 복셀 비행 연출)과 개인 게임 포털 matail.party 개설</p></div>
-      <div class="t"><span class="d">2026.09–10</span><p>Streams를 Unity 6로 리빌드, Workers·Durable Objects로 대전 서버</p></div>
-      <div class="t"><span class="d">2026.10</span><p>Streams v17(Gumbel AlphaZero) 배포, 블로그·검색 노출, feedme 3D 빌드</p></div>
-      <div class="t"><span class="d">2026.10–11</span><p>생성형 AI MCP 연동, 최신 문서 MCP, 부트스트랩·기동 검증</p></div>
-      <div class="t now"><span class="d">NOW</span><p>Agent SDK 에이전트 팀 4개를 실제 프로젝트에 돌리며 다듬는 중</p></div>
+      <div class="t"><span class="d">2026.09</span><p>포트폴리오 웹<br>matail.party 개설</p></div>
+      <div class="t"><span class="d">2026.09–10</span><p>Streams Unity 6 리빌드<br>실시간 대전 서버</p></div>
+      <div class="t"><span class="d">2026.10</span><p>Streams v17 배포<br>블로그 · feedme 3D</p></div>
+      <div class="t"><span class="d">2026.10–11</span><p>생성형 AI · 문서 MCP<br>부트스트랩</p></div>
+      <div class="t now"><span class="d">NOW</span><p>에이전트 팀 4개<br>실전 투입 중</p></div>
     </div>
   </div>
 </section>
@@ -465,117 +503,92 @@ table.fit td.q{width:62mm;color:#4a4a47}
 <!-- ======================================================================
      PAGE 3 — AGENT TEAMS
      ====================================================================== -->
-<section class="page p3">
-  <div class="rail"><span class="v">WONCHAN PARK — AGENT TEAMS</span><span class="pn">03</span></div>
+<section class="page">
+  <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">03</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
-    <header class="ph">
-      <span class="en">02 · Multi-Agent Teams</span>
+    <header class="ph" style="margin-bottom:6mm">
       <h2>Claude Agent SDK로 만든 에이전트 팀 4개</h2>
-      <p class="lead">Claude Code에서 도구 하나로 팀을 부르면, 팀장 에이전트가 일을 나눠 서브에이전트에게 맡기고 결과를 파일·매니페스트·로그로 남깁니다. 팀마다 MCP 서버로 감싸서, Claude Code에서는 다른 도구와 똑같이 부릅니다.</p>
+      <p class="lead">도구 하나로 팀 호출 → 팀장이 나눠 맡김 → 결과는 파일로</p>
     </header>
 
-    <div class="sh"><span class="dot"></span><span class="t">ARCHITECTURE</span><span class="ko">한 번의 요청이 흐르는 길</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">구조</span><span class="rule"></span></div>
     <div class="flow">
-      <div class="n"><span class="s">01</span><h4>Claude Code 세션</h4><p>"에셋팀으로 탑다운 RPG 기사 스프라이트 하나"</p></div>
+      <div class="n"><span class="s">01</span><h4>Claude Code</h4><p>"에셋팀으로 기사 스프라이트"</p></div>
       <div class="ar"></div>
-      <div class="n sage"><span class="s">02</span><h4>팀 MCP 서버</h4><p><code>start_*</code>가 바로 job_id를 돌려주고 뒤에서 실행</p></div>
+      <div class="n sage"><span class="s">02</span><h4>팀 MCP 서버</h4><p><code>start_*</code> → job_id<br>비동기 실행</p></div>
       <div class="ar"></div>
-      <div class="n dark"><span class="s">03</span><h4>팀장 에이전트</h4><p>Agent SDK · opus/sonnet 선택, 계획하고 위임</p></div>
+      <div class="n dark"><span class="s">03</span><h4>팀장 에이전트</h4><p>Agent SDK<br>opus / sonnet</p></div>
       <div class="ar"></div>
-      <div class="n"><span class="s">04</span><h4>서브에이전트</h4><p>역할별로 쓸 수 있는 도구만 열어 둠</p></div>
+      <div class="n"><span class="s">04</span><h4>서브에이전트</h4><p>역할별 도구만 허용</p></div>
       <div class="ar"></div>
-      <div class="n sage"><span class="s">05</span><h4>산출물</h4><p>파일 + 구조화된 매니페스트 + 실행 로그</p></div>
+      <div class="n sage"><span class="s">05</span><h4>산출물</h4><p>파일 · 매니페스트 · 로그</p></div>
     </div>
     <div class="api">
-      <span class="lbl">Job API</span><div class="row"><span class="chip mono">start_*</span><span class="chip mono">wait_for_*_job</span><span class="chip mono">get_*_job</span><span class="chip mono">list_*_jobs</span><span class="chip mono">cancel_*_job</span><span class="muted">작업은 한 번에 하나, 기다리는 동안 진행 로그를 보여줌</span></div>
-      <span class="lbl">공통 인자</span><div class="row"><span class="chip mono">brief ≤ 4000자</span><span class="chip mono">project_dir</span><span class="chip mono">budget_usd</span><span class="chip mono">lead_model</span><span class="muted">팀장을 sonnet으로 낮춰 사용량 조절</span></div>
+      <span class="lbl">Job API</span><div class="row"><span class="chip mono">start_*</span><span class="chip mono">wait_for_*_job</span><span class="chip mono">get_*_job</span><span class="chip mono">list_*_jobs</span><span class="chip mono">cancel_*_job</span></div>
+      <span class="lbl">공통 인자</span><div class="row"><span class="chip mono">brief</span><span class="chip mono">project_dir</span><span class="chip mono">budget_usd</span><span class="chip mono">lead_model</span></div>
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">TEAMS</span><span class="ko">팀별 역할과 안전장치</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">팀별 역할과 안전장치</span><span class="rule"></span></div>
     <table class="t">
-      <colgroup><col style="width:21mm"><col style="width:38mm"><col style="width:30mm"><col style="width:36mm"><col></colgroup>
-      <thead><tr><th>TEAM</th><th>하는 일</th><th>구성</th><th>산출물</th><th>안전장치</th></tr></thead>
+      <colgroup><col style="width:21mm"><col style="width:36mm"><col style="width:37mm"><col style="width:32mm"><col></colgroup>
+      <thead><tr><th>팀</th><th>하는 일</th><th>서브에이전트 · 도구</th><th>산출물</th><th>안전장치</th></tr></thead>
       <tbody>
-        <tr>
-          <td><b>에셋팀</b><span class="mono">asset_team</span></td>
-          <td>브리프를 받아 픽셀아트·3D 모델·BGM 생성</td>
-          <td>팀장 + docs-researcher, pixel-artist 등</td>
-          <td>에셋 파일, StructuredOutput 매니페스트</td>
-          <td>유료 API는 도구별 최대 호출 횟수, Claude 비용 상한</td>
-        </tr>
-        <tr>
-          <td><b>기획팀</b><span class="mono">plan_team</span></td>
-          <td>웹 사례·기술 문서·참고 저장소, 필요하면 arXiv까지 조사</td>
-          <td>팀장 + 조사 도구(GitHub · Context7 · Exa · arXiv · Playwright)</td>
-          <td><code>docs/plans/</code>의 마크다운 계획서</td>
-          <td>프로젝트는 읽기만, 기본 비용 상한 $3</td>
-        </tr>
-        <tr>
-          <td><b>보고서팀</b><span class="mono">report_team</span></td>
-          <td>코드 분석, 테스트·빌드·앱 실행·브라우저 QA 후 보고서 작성</td>
-          <td>팀장 + code-analyst, qa-runner, figure-maker</td>
-          <td><code>report.md</code>, 그림이 든 <code>report.html</code>, 캡처</td>
-          <td>쓰기는 보고서 폴더만, 삭제·git 변경·배포 차단, localhost만, API 키 가림</td>
-        </tr>
-        <tr>
-          <td><b>백엔드팀</b><span class="mono">backend_team</span></td>
-          <td>최신 문서를 근거로 리팩터링하고 전후를 숫자로 비교</td>
-          <td>팀장 + researcher, reviewer, refactorer</td>
-          <td><code>backend-team/&lt;job&gt;</code> 브랜치 커밋, 측정 비교 보고서</td>
-          <td>git worktree에서만 수정, push 안 함, 한 번에 하나씩 고치고 깨지면 되돌림</td>
-        </tr>
+        <tr><td><b>에셋팀</b><span class="mono">asset_team</span></td><td>픽셀아트 · 3D · BGM 생성</td><td>docs-researcher · pixel-artist 등</td><td>에셋 + 매니페스트</td><td>유료 호출 횟수 한도 · 비용 상한</td></tr>
+        <tr><td><b>기획팀</b><span class="mono">plan_team</span></td><td>사례 · 문서 · 저장소 · arXiv 조사</td><td>GitHub · Context7 · Exa · arXiv · Playwright</td><td><code>docs/plans/</code> 계획서</td><td>읽기 전용 · 상한 $3</td></tr>
+        <tr><td><b>보고서팀</b><span class="mono">report_team</span></td><td>코드 분석 · 실행 QA · 보고서</td><td>code-analyst · qa-runner · figure-maker</td><td>report.md · .html</td><td>보고서 폴더만 쓰기 · git 변경 · 배포 차단</td></tr>
+        <tr><td><b>백엔드팀</b><span class="mono">backend_team</span></td><td>근거 기반 리팩터링 · 전후 측정</td><td>researcher · reviewer · refactorer</td><td>별도 브랜치 커밋 + 측정 보고서</td><td>worktree 격리 · push 안 함 · 깨지면 되돌림</td></tr>
       </tbody>
     </table>
 
     <div class="gap"></div>
     <div class="two">
       <div>
-        <div class="sh"><span class="dot"></span><span class="t">REAL RUN</span><span class="ko">실제 실행 로그</span><span class="rule"></span></div>
+        <div class="sh"><span class="dot"></span><span class="t">실제 실행 로그</span><span class="rule"></span></div>
         <div class="log">
           <div class="h"><span>$ asset_team · job 20261102-201736</span><span>sonnet</span></div>
-          <div class="r"><span class="ts">20:17:36</span><span class="k">brief</span><span>픽셀 아트 기사 스프라이트 1개, 탑다운 RPG용</span></div>
-          <div class="r"><span class="ts">20:17:36</span><span class="k">limit</span><span>pixellab 1회 · suno 0회 · tripo 0회 · 상한 $2.0</span></div>
-          <div class="r"><span class="ts">20:17:39</span><span class="k">init</span><span>서브에이전트 docs-researcher, pixel-artist</span></div>
+          <div class="r"><span class="ts">20:17:36</span><span class="k">brief</span><span>픽셀 아트 기사 스프라이트 1개</span></div>
+          <div class="r"><span class="ts">20:17:36</span><span class="k">limit</span><span>pixellab 1회 · suno 0회 · tripo 0회 · $2.0</span></div>
+          <div class="r"><span class="ts">20:17:39</span><span class="k">init</span><span>docs-researcher, pixel-artist</span></div>
           <div class="r"><span class="ts">20:17:45</span><span class="k">main</span><span>→ pixel-artist에게 위임</span></div>
           <div class="r"><span class="ts">20:18:12</span><span class="k">$ allow</span><span>pixellab.create_character (1/1)</span></div>
           <div class="r"><span class="ts">20:19:19</span><span class="k">save</span><span>knight.zip · 8방향 · 68×68px</span></div>
           <div class="r"><span class="ts">20:19:46</span><span class="k">result</span><span class="ok">success · 3턴 · 126.7s · $0.1357</span></div>
-          <div class="cap">인증은 PC의 Claude 구독 로그인을 씁니다. 환경에 API 키가 있어도 쓰지 않아 따로 과금되지 않습니다.</div>
+          <div class="cap">구독 로그인 인증 · 환경의 API 키 미사용</div>
         </div>
       </div>
       <div>
-        <div class="sh"><span class="dot"></span><span class="t">VERIFIED</span><span class="ko">검증한 것</span><span class="rule"></span></div>
+        <div class="sh"><span class="dot"></span><span class="t">검증한 것</span><span class="rule"></span></div>
         <ul class="chk">
-          <li>모의 API와 실제 CLI·git·Semgrep·헤드리스 브라우저로 처음부터 끝까지 시험</li>
-          <li>보고서팀 명령 검사: 허용할 명령 41개, 막을 명령 63개를 모두 맞게 판정</li>
-          <li>일부러 넣은 위험한 시도 5개(브랜치 생성, 프로젝트 파일 쓰기, <code>rm -rf</code>, 외부 사이트) 모두 차단</li>
-          <li>백엔드팀: 테스트 실패 1→0, Semgrep 발견 1→0, 원래 폴더와 브랜치는 그대로</li>
-          <li>시험 중 작업 사본 경로 버그를 찾아 고치고 다른 팀을 회귀 시험</li>
+          <li>E2E: 모의 API + 실제 CLI · git · Semgrep · 브라우저</li>
+          <li>명령 검사 규칙: 허용 41 / 차단 63 모두 정확</li>
+          <li>일부러 넣은 위험 시도 5종 모두 차단</li>
+          <li>백엔드팀: 테스트 실패 1→0 · Semgrep 1→0</li>
+          <li>시험 중 경로 버그 발견 → 수정 → 회귀 시험</li>
         </ul>
-        <p class="status">에셋팀은 실제 모델로 쓰고 있고, 나머지 세 팀은 위 시험을 마치고 실제 프로젝트에 넣으며 프롬프트를 다듬고 있습니다.</p>
+        <p class="status">에셋팀 실사용 중 · 나머지 3팀 실전 투입 중</p>
       </div>
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">ORCHESTRATION</span><span class="ko">팀을 이어 쓰는 흐름</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">팀을 이어 쓰는 흐름</span><span class="rule"></span></div>
     <div class="flow f4">
-      <div class="n sage"><span class="s">PLAN</span><h4>기획팀</h4><p>조사 후 <code>docs/plans/</code>에 계획서</p></div>
+      <div class="n sage"><span class="s">PLAN</span><h4>기획팀</h4><p>조사 → 계획서</p></div>
       <div class="ar"></div>
-      <div class="n"><span class="s">BUILD</span><h4>구현 · 백엔드팀</h4><p>계획대로 구현, 별도 브랜치에서 개선</p></div>
+      <div class="n"><span class="s">BUILD</span><h4>구현 · 백엔드팀</h4><p>별도 브랜치에서 구현 · 개선</p></div>
       <div class="ar"></div>
-      <div class="n sage"><span class="s">REPORT</span><h4>보고서팀</h4><p>계획서 대비 구현 확인, 실행 QA</p></div>
+      <div class="n sage"><span class="s">REPORT</span><h4>보고서팀</h4><p>계획 대비 확인 · 실행 QA</p></div>
       <div class="ar"></div>
-      <div class="n dark"><span class="s">HUMAN</span><h4>사람이 결정</h4><p>diff와 보고서를 보고 merge</p></div>
+      <div class="n dark"><span class="s">HUMAN</span><h4>사람이 결정</h4><p>diff · 보고서 보고 merge</p></div>
     </div>
 
     <div class="gap"></div>
     <div class="band">
-      <div><span class="k">RULE 01</span><p>돈이 드는 호출은 도구별 횟수 한도와 비용 상한 안에서만 나갑니다.</p></div>
-      <div><span class="k">RULE 02</span><p>코드를 바꾸는 일은 별도 브랜치·작업 사본에서 하고, 반영은 사람이 diff를 보고 정합니다.</p></div>
-      <div><span class="k">RULE 03</span><p>결과는 파일·매니페스트·로그로 남겨, 나중에 다시 확인할 수 있게 합니다.</p></div>
+      <div><span class="num-k">01</span><p>유료 호출은 한도 · 상한 안에서만</p></div>
+      <div><span class="num-k">02</span><p>코드 변경은 별도 브랜치, merge는 사람이</p></div>
+      <div><span class="num-k">03</span><p>결과는 파일 · 매니페스트 · 로그로 남김</p></div>
     </div>
   </div>
 </section>
@@ -583,85 +596,80 @@ table.fit td.q{width:62mm;color:#4a4a47}
 <!-- ======================================================================
      PAGE 4 — TOOLING
      ====================================================================== -->
-<section class="page">
-  <div class="rail"><span class="v">WONCHAN PARK — TOOLING</span><span class="pn">04</span></div>
+<section class="page p4">
+  <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">04</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
     <header class="ph">
-      <span class="en">03 · Tooling</span>
       <h2>막힌 지점을 도구로 바꾼 기록</h2>
-      <p class="lead">Claude Code에 일을 시키다 같은 곳에서 계속 막히면, 그 지점을 도구로 만들었습니다. 에이전트 팀도 이 도구들 위에서 돌아갑니다.</p>
+      <p class="lead">같은 곳에서 계속 막히면, 그 지점을 도구로 만듭니다.</p>
     </header>
 
     <div class="cases">
       <div class="case">
-        <div class="hd"><span class="no">01</span><h4>최신 문서 검색 MCP 서버</h4></div>
-        <div class="tags"><span class="tag">Python</span><span class="tag">FastMCP</span><span class="tag">문서 검색</span></div>
+        <div class="hd"><span class="no">01</span><h4>최신 문서 검색 MCP</h4></div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">FastMCP</span></div>
         <dl>
-          <dt>문제</dt><dd>Claude가 anime.js v4 API를 예전 v3 방식으로 답해서, 생성된 코드가 계속 틀렸습니다.</dd>
-          <dt>만든 것</dt><dd>공식 문서를 찾아 본문만 돌려주는 MCP 서버입니다. 검색 결과에 점수를 매기고, HTML을 텍스트로 바꾸고, SPA 페이지인지 판정해 따로 처리합니다.</dd>
-          <dt class="r">결과</dt><dd>모델이 학습한 뒤에 바뀐 API도 최신 문서를 근거로 코드를 씁니다.</dd>
+          <dt>문제</dt><dd>모델이 anime.js v4를 옛 v3 API로 답함</dd>
+          <dt>만든 것</dt><dd>공식 문서 검색 MCP<br>점수화 · HTML→텍스트 · SPA 판정</dd>
+          <dt class="r">결과</dt><dd>학습 이후 바뀐 API도 최신 문서 기준으로</dd>
         </dl>
       </div>
       <div class="case">
         <div class="hd"><span class="no">02</span><h4>생성형 AI를 MCP로 한곳에</h4></div>
         <div class="tags"><span class="tag">Tripo</span><span class="tag">PixelLab</span><span class="tag">Suno</span><span class="tag">Kling</span></div>
         <dl>
-          <dt>문제</dt><dd>3D 모델·픽셀아트·음악·영상 서비스를 각각 웹에서 따로 다뤄야 했습니다.</dd>
-          <dt>만든 것</dt><dd>각 서비스를 MCP 서버로 연결하고 파라미터 검증을 넣었습니다. 연결 기준도 정했습니다: OAuth를 쓰는 서비스는 계정 커넥터로, API 키를 쓰는 서비스는 매니페스트로.</dd>
-          <dt class="r">결과</dt><dd>Claude Code 안에서 에셋 생성까지 이어지고, 이것이 에셋팀의 바탕이 됐습니다.</dd>
+          <dt>문제</dt><dd>3D · 픽셀 · 음악 · 영상 서비스가 제각각</dd>
+          <dt>만든 것</dt><dd>MCP 연결 + 파라미터 검증<br>OAuth → 커넥터 · API 키 → 매니페스트</dd>
+          <dt class="r">결과</dt><dd>Claude Code 안에서 에셋 생성 → 에셋팀의 기반</dd>
         </dl>
       </div>
       <div class="case">
-        <div class="hd"><span class="no">03</span><h4>부트스트랩과 실제 기동 검증</h4></div>
+        <div class="hd"><span class="no">03</span><h4>부트스트랩 + 실제 기동 검증</h4></div>
         <div class="tags"><span class="tag">PowerShell</span><span class="tag">Node.js</span><span class="tag">JSON-RPC</span></div>
         <dl>
-          <dt>문제</dt><dd>서버가 늘수록 PC마다 설정이 어긋났고, 설정 파일만 봐서는 서버가 실제로 뜨는지 알 수 없었습니다.</dd>
-          <dt>만든 것</dt><dd><code>bootstrap.ps1</code>이 필요한 도구 설치, 설정 병합, 서버 등록까지 하고, <code>verify.mjs</code>가 서버를 실제로 띄워 JSON-RPC 핸드셰이크로 확인합니다.</dd>
-          <dt class="r">결과</dt><dd>MCP 서버 23개를 명령 한 번으로 재현합니다. 토큰 이름이 틀리거나 값에 <code>=</code>가 하나 더 붙은 실수도 검증 단계에서 잡혔습니다.</dd>
+          <dt>문제</dt><dd>PC마다 어긋나는 설정, 실제로 뜨는지 모름</dd>
+          <dt>만든 것</dt><dd><code>bootstrap.ps1</code> 설치 · 병합 · 등록<br><code>verify.mjs</code> 실제 기동 + 핸드셰이크 확인</dd>
+          <dt class="r">결과</dt><dd>서버 23개를 명령 한 번에 재현 · 토큰 오타도 검출</dd>
         </dl>
       </div>
       <div class="case">
         <div class="hd"><span class="no">04</span><h4>반복 요청을 Skills로</h4></div>
         <div class="tags"><span class="tag">Skills</span><span class="tag">docx</span><span class="tag">pptx</span></div>
         <dl>
-          <dt>문제</dt><dd>강의자료 해설, 발표자료 구성, 엔진별 코드 규칙을 매번 길게 설명해야 했습니다.</dd>
-          <dt>만든 것</dt><dd>강의·논문을 빠짐없이 풀어 Word 학습자료로 만드는 lecture-explainer, 그림 중심 연구 발표용 research-pptx, 엔진별 규칙을 담은 game-dev-coding을 만들고, 디자인 스킬 8개는 하나로 묶었습니다.</dd>
-          <dt class="r">결과</dt><dd>한 문장으로 요청해도 같은 형식과 품질의 결과가 나옵니다.</dd>
+          <dt>문제</dt><dd>같은 요청을 매번 길게 설명</dd>
+          <dt>만든 것</dt><dd>lecture-explainer · research-pptx<br>game-dev-coding · 디자인 스킬 8→1</dd>
+          <dt class="r">결과</dt><dd>한 문장으로 같은 형식 · 품질</dd>
         </dl>
       </div>
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">STACK</span><span class="ko">도구가 쌓인 구조</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">도구가 쌓인 구조</span><span class="rule"></span></div>
     <div class="stack">
       <div class="lvls">
-        <div class="lv a"><b>에이전트 팀</b><span>asset · plan · report · backend (Agent SDK)</span></div>
-        <div class="lv b"><b>MCP 도구 서버</b><span>문서 검색 · 생성형 AI · 엔진 · 보안 · 브라우저</span></div>
-        <div class="lv c"><b>Skills · 커넥터</b><span>반복 요청은 Skills로, OAuth 서비스는 계정 커넥터로</span></div>
-        <div class="lv d"><b>기반</b><span class="mono" style="font-size:6.8pt">bootstrap.ps1 · verify.mjs · manifest</span></div>
+        <div class="lv a"><b>에이전트 팀</b><span>asset · plan · report · backend</span></div>
+        <div class="lv b"><b>MCP 도구 서버</b><span>문서 검색 · 생성형 AI · 엔진 · 보안</span></div>
+        <div class="lv c"><b>Skills · 커넥터</b><span>반복 요청 · 외부 계정</span></div>
+        <div class="lv d"><b>기반</b><span class="mono" style="font-size:7pt">bootstrap.ps1 · verify.mjs · manifest</span></div>
       </div>
-      <div class="note"><b>위층은 아래층 위에서 돌아갑니다.</b>에셋팀의 pixel-artist는 pixellab MCP로 그리고 asset_files MCP로 저장합니다. 아래층을 고치면 위층의 모든 팀이 함께 좋아집니다.</div>
+      <div class="note"><b>위층은 아래층 위에서 동작</b>pixel-artist<br>= pixellab MCP + asset_files MCP</div>
     </div>
 
     <div class="gap"></div>
     <div class="small">
       <div>
-        <div class="sh"><span class="dot"></span><span class="t">SMALL AUTOMATIONS</span><span class="rule"></span></div>
+        <div class="sh"><span class="dot"></span><span class="t">작은 자동화</span><span class="rule"></span></div>
         <ul class="bul">
-          <li>HWP 실습일지 양식을 A4 한 쪽 레이아웃 그대로 Word로 변환</li>
-          <li>이미지 5장을 가로선 기준으로 잘라 25장으로 일괄 분할</li>
-          <li>Streams 발표자료(PPTX)를 버전별로 정리하고 렌더링까지 검증</li>
-          <li>수업 개념(벨만 방정식, PCA, 역전파) 설명을 검토받아 고치는 공부 루프</li>
+          <li>HWP 실습일지 → Word (A4 레이아웃 유지)</li>
+          <li>Streams 발표 PPTX 버전 정리 · 렌더링 검증</li>
+          <li>수업 개념 설명 검토 루프 (벨만 방정식 · PCA · 역전파)</li>
         </ul>
       </div>
       <div>
-        <div class="sh"><span class="dot"></span><span class="t">HABIT</span><span class="rule"></span></div>
-        <div class="quote">
-          <b>직접 부딪혀 보고, 날짜와 함께 적어 둡니다.</b>
-          MCP 저장소 README에는 직접 겪은 함정 기록이 날짜와 함께 수십 개 쌓여 있습니다. unity-mcp가 버전을 고정하는 원리, blender-mcp의 프로토콜 차이처럼 오픈소스 내부를 뜯어보며 알게 된 것도 여기에 남깁니다.
-        </div>
+        <div class="sh"><span class="dot"></span><span class="t">습관</span><span class="rule"></span></div>
+        <div class="note"><b>직접 부딪히고, 날짜와 함께 기록</b>README에 실측 함정 기록 수십 개<br>unity-mcp 버전 고정 · blender-mcp 프로토콜 분석</div>
       </div>
     </div>
   </div>
@@ -671,39 +679,32 @@ table.fit td.q{width:62mm;color:#4a4a47}
      PAGE 5 — STREAMS v17
      ====================================================================== -->
 <section class="page p5">
-  <div class="rail"><span class="v">WONCHAN PARK — STREAMS v17</span><span class="pn">05</span></div>
+  <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">05</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
-    <header class="ph">
-      <span class="en">04 · Streams v17</span>
+    <header class="ph" style="margin-bottom:6mm">
       <h2>사람과 같은 정보로 다시 이긴 보드게임 AI</h2>
-      <p class="lead">캡스톤에서 끝내지 않고 스스로 다시 점검했습니다. 공정한 조건에서 새로 학습하고, 난이도를 붙여 실제 게임으로 배포했습니다.</p>
+      <p class="lead">캡스톤 → 재점검 → v17 학습 → 배포</p>
     </header>
 
     <div class="proj">
       <div class="bar">
-        <div><span class="en">RL · Unity · Cloudflare</span><h3>STREAMS — 사람과 겨루는 보드게임과 AI</h3></div>
+        <h3>STREAMS</h3>
         <div class="lk">matail.party/games/streams-unity<br>github.com/Koojunyeong/streams</div>
       </div>
       <div class="in">
-        <div class="steps">
-          <div class="step"><span class="sn">1</span><h5>캡스톤 (2인 팀)</h5><p>되돌릴 수 없는 20번의 카드 배치. 모방학습(BC)과 D3QN을 결합해 평균 31.8점을 71.5점으로 올렸고, 학습 데이터는 직접 만든 웹앱으로 1,346게임을 모았습니다. 단과대학 우수상.</p></div>
-          <div class="step"><span class="sn">2</span><h5>스스로 다시 점검</h5><p>캡스톤 이후 세 가지 문제를 찾았습니다. 사람은 모르는 다음 덱 정보가 입력에 들어간 정보 누수, 비교 연산 <code>&lt;</code>/<code>&lt;=</code> 버그, 배포 환경에 torch가 없어 AI가 무작위로 둔 기간의 데이터 오염. 같은 정보로 맞추자 v16은 24.4점으로, 사람 평균 31.3점(실제 1,655판)은 물론 당장 점수만 고르는 greedy(38.0점)보다도 낮았습니다.</p></div>
-          <div class="step"><span class="sn">3</span><h5>v17 새로 학습</h5><p>사람과 같은 정보(124차원 입력)만 보는 85만 파라미터 정책·가치망. afterstate TD n-tuple 47.5점(보드 전체 특징을 더해 45점대 정체 돌파), TD + expectimax 탐색 48.4점, Stochastic Gumbel AlphaZero 셀프플레이(반복당 512판) 48.8점. 고정 덱 2,000판·95% 신뢰구간으로 비교했고, 20점 미만 판은 339판에서 0판이 됐습니다.</p></div>
-          <div class="step"><span class="sn">4</span><h5>난이도와 서비스</h5><p>사람 모방 정책(사람 수 일치 66.8%)과 SGAZ 정책을 β 하나로 섞어 난이도 5단계(22.3~49.0점)를 만들었습니다. 게임은 Unity 6로 다시 만들어 Unity MCP로 WebGL 빌드했고, 덱과 AI는 Cloudflare Worker 서버에만 두고, 추론은 torch 없이 numpy만으로 수마다 순전파 한 번에 끝납니다. Durable Objects 웹소켓으로 친구 대전, D1에 쌓인 기록은 다음 학습 데이터가 됩니다.</p></div>
-        </div>
-        <div class="stats">
-          <div><div class="n">24.4<small> → </small>48.8</div><div class="l">같은 정보 조건 v16 → v17 (사람 31.3)</div></div>
-          <div><div class="n">339<small> → </small>0</div><div class="l">20점 미만 판 (2,000판 중)</div></div>
-          <div><div class="n">22.3<small>~</small>49.0</div><div class="l">난이도 5단계 평균 점수</div></div>
-          <div><div class="n">31.8<small> → </small>71.5</div><div class="l">캡스톤 BC + D3QN (1,346게임 수집)</div></div>
-        </div>
+        <table class="st">
+          <tr><td class="k"><span class="sn">1</span>캡스톤</td><td>BC + D3QN · 웹앱으로 1,346게임 수집 · 단과대 우수상</td><td class="r"><b>31.8 → 71.5</b><span>2인 팀</span></td></tr>
+          <tr><td class="k"><span class="sn">2</span>재점검</td><td>덱 정보 누수 · <code>&lt;</code>/<code>&lt;=</code> 버그 · torch 부재로 데이터 오염 발견</td><td class="r"><b>24.4</b><span>사람 31.3 · greedy 38.0보다 낮음</span></td></tr>
+          <tr><td class="k"><span class="sn">3</span>v17 학습</td><td>사람과 같은 124차원 입력 · 85만 파라미터<br>TD n-tuple 47.5 · TD+expectimax 48.4 · SGAZ</td><td class="r"><b>48.8</b><span>20점 미만 판 339 → 0</span></td></tr>
+          <tr><td class="k"><span class="sn">4</span>배포</td><td>사람 모방 × SGAZ (β) 난이도 · Unity 6 WebGL<br>Worker + numpy 추론 · 친구 대전 · D1 기록</td><td class="r"><b>22.3 ~ 49.0</b><span>난이도 5단계</span></td></tr>
+        </table>
         <div class="figs v17">
-          <figure><img src="../../assets/img/st17-compare.webp" alt="사람과 같은 정보 조건에서 에이전트별 평균 점수"><figcaption>사람과 같은 정보만 볼 때의 평균 점수. 같은 평가 덱 2,000판에서 v16은 사람 평균보다 낮았고, v17은 세 방식 모두 47점을 넘었습니다.</figcaption></figure>
-          <figure><img src="../../assets/img/st17-levels.webp" alt="난이도 5단계와 강함-사람다움 균형"><figcaption>β 하나로 사람 모방 정책과 SGAZ 정책을 섞은 난이도 5단계. β가 커질수록 강해지고, 사람과 같은 수를 두는 비율은 낮아집니다.</figcaption></figure>
+          <figure><img src="../../assets/img/st17-compare.webp" alt="사람과 같은 정보 조건에서 에이전트별 평균 점수"><figcaption>같은 정보 조건 평균 점수 · 고정 덱 2,000판 · 95% CI</figcaption></figure>
+          <figure><img src="../../assets/img/st17-levels.webp" alt="난이도 5단계와 강함-사람다움 균형"><figcaption>β 하나로 만든 난이도 5단계 · 강할수록 사람다움은 낮아짐</figcaption></figure>
         </div>
-        <figure class="wide"><img src="../../assets/img/st17-network.webp" alt="v17 정책·가치망과 Gumbel AlphaZero 학습 구조도"><figcaption>124차원 입력을 받는 v17 정책·가치망(85만 파라미터)과 Stochastic Gumbel AlphaZero 셀프플레이 학습. 게임 서버에서는 사람 모방 정책과 섞어 난이도를 만듭니다.</figcaption></figure>
+        <figure class="wide"><img src="../../assets/img/st17-network.webp" alt="v17 정책·가치망과 Gumbel AlphaZero 학습 구조도"><figcaption>v17 정책 · 가치망과 Gumbel AlphaZero 셀프플레이 학습, 서버에서의 난이도 혼합</figcaption></figure>
       </div>
     </div>
   </div>
@@ -713,70 +714,69 @@ table.fit td.q{width:62mm;color:#4a4a47}
      PAGE 6 — MORE WORK
      ====================================================================== -->
 <section class="page p6">
-  <div class="rail"><span class="v">WONCHAN PARK — MORE WORK</span><span class="pn">06</span></div>
+  <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">06</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
     <header class="ph">
-      <span class="en">05 · More Work</span>
       <h2>AI가 들어간 서비스를 끝까지 운영합니다</h2>
-      <p class="lead">실험에서 멈추지 않고, 사람이 실제로 쓰는 곳까지 배포한 뒤 다시 고칩니다.</p>
+      <p class="lead">실험에서 멈추지 않고, 실제로 쓰이는 곳까지</p>
     </header>
 
     <div class="proj">
       <div class="bar">
-        <div><span class="en">Astro · TypeScript · Workers</span><h3>matail.party — 직접 운영하는 게임 포털</h3></div>
+        <h3>matail.party — 직접 운영하는 게임 포털</h3>
         <div class="lk">matail.party</div>
       </div>
       <div class="in">
-        <ul class="bul">
-          <li><b>스택:</b> Astro + TypeScript 프런트, Cloudflare Workers · D1 · KV · Durable Objects 백엔드, 실제 도메인에서 운영 중</li>
-          <li><b>작업 방식:</b> PR 49개 이상, 대부분 Claude Code가 만든 브랜치에서 나와 PR로 반영. 계획·결정은 세션 기록 문서로 남김</li>
-          <li><b>올라간 것:</b> Streams(Unity WebGL), feedme 3D 테스트 빌드, Decap CMS 블로그(GitHub OAuth를 Worker로 처리), 사이트맵·Search Console 검색 노출</li>
-          <li><b>운영 판단:</b> 무료 요금제로 감당할 수 있는 하루 방문자 수를 추산하고, 정적 자원까지 Worker를 먼저 거치는 설정이 병목임을 찾음</li>
-        </ul>
+        <dl class="kv">
+          <dt>스택</dt><dd>Astro · TypeScript · Cloudflare Workers · D1 · KV · Durable Objects</dd>
+          <dt>작업</dt><dd>PR 49+ · 대부분 Claude Code 브랜치 → PR로 반영</dd>
+          <dt>서비스</dt><dd>Streams (Unity WebGL) · feedme 3D · Decap CMS 블로그 · 검색 노출</dd>
+          <dt>운영</dt><dd>무료 요금제 한도 추산 · Worker 정적 자원 병목 발견</dd>
+        </dl>
       </div>
     </div>
 
     <div class="gap"></div>
     <div class="mini">
       <div class="card">
-        <h4>포트폴리오 웹 — 스크롤로 나는 복셀 지형</h4>
-        <div class="tags"><span class="tag">three.js</span><span class="tag">GitHub Pages</span><span class="tag">matail.github.io/Portfolio</span></div>
-        <p>three.js로 복셀 지형 위를 스크롤에 맞춰 비행하는 연출, 페이지 전환 효과, 이미지 라이트박스를 넣었습니다. 글꼴과 라이브러리를 직접 호스팅해 CDN이 막혀도 화면이 바뀌지 않습니다.</p>
+        <h4>포트폴리오 웹</h4>
+        <div class="tags"><span class="tag">three.js</span><span class="tag">GitHub Pages</span></div>
+        <p>스크롤로 나는 복셀 지형 · 페이지 전환 · 라이트박스 · 자체 호스팅 글꼴</p>
       </div>
       <div class="card">
-        <h4>이 PDF — 클라우드 세션에서 만든 문서</h4>
-        <div class="tags"><span class="tag">Claude Code</span><span class="tag">HTML/CSS</span><span class="tag">Playwright</span></div>
-        <p>공고와 제 작업 기록을 근거로 클라우드 세션에서 HTML로 짜고, Playwright로 PDF를 렌더링하면서 쪽마다 내용이 넘치는지 자동으로 검사했습니다. 원본은 Portfolio 저장소의 <code>pdf/ai-automation</code>에 있습니다.</p>
+        <h4>이 PDF</h4>
+        <div class="tags"><span class="tag">Claude Code</span><span class="tag">Playwright</span></div>
+        <p>클라우드 세션에서 HTML 작성 → PDF 렌더링 · 쪽 넘침 자동 검사</p>
       </div>
     </div>
 
     <div class="gap"></div>
-    <div class="sh"><span class="dot"></span><span class="t">OTHER AI WORK</span><span class="ko">그 밖의 AI 경험</span><span class="rule"></span></div>
+    <div class="sh"><span class="dot"></span><span class="t">그 밖의 AI 경험</span><span class="rule"></span></div>
     <div class="others">
       <div class="card ocard">
         <h4>LG EXAONE 모바일 경량화</h4>
-        <div class="tags"><span class="tag">GPTQ W4A16</span><span class="tag">SparseGPT</span><span class="tag">EXAONE 4.0 1.2B</span></div>
-        <ul class="bul">
-          <li>LG AIMERS 8기 LLM 과정(약 1개월)을 수료하고, 약 20일 해커톤에서 EXAONE 4.0 1.2B를 모바일용으로 경량화</li>
-          <li>4bit 양자화(GPTQ W4A16)와 프루닝(SparseGPT, sparsity 35%, 2:4 구조 마스크)을 함께 적용</li>
-          <li>프루닝으로 정해진 구조 위에서 GPTQ가 남은 오차를 나누도록 순서를 맞춤</li>
-          <li>베이스라인에서 뺐던 민감 레이어를 다시 넣고, 캘리브레이션을 강화해 압축을 버티게 함</li>
-          <li><b>배운 점:</b> 압축을 겹칠 땐 A만·B만·A+B를 비교하는 ablation과 레이어별 민감도 근거가 필요</li>
-        </ul>
-        <figure class="ofig cert"><img src="../../assets/img/ex-cert.webp" alt="LG AIMERS 8기 수료증"><figcaption>LG AIMERS 8기 LLM 과정 수료증</figcaption></figure>
+        <div class="tags"><span class="tag">GPTQ W4A16</span><span class="tag">SparseGPT</span></div>
+        <dl class="kv">
+          <dt>과정</dt><dd>LG AIMERS 8기 수료 · 해커톤 20일</dd>
+          <dt>대상</dt><dd>EXAONE 4.0 1.2B → 모바일</dd>
+          <dt>방법</dt><dd>4bit 양자화 + 프루닝 35% · 2:4</dd>
+          <dt>포인트</dt><dd>프루닝 → 양자화 순서 · 민감 레이어 재포함</dd>
+          <dt>배운 점</dt><dd>ablation · 레이어별 민감도 근거</dd>
+        </dl>
+        <figure class="ofig cert"><img src="../../assets/img/ex-cert.webp" alt="LG AIMERS 8기 수료증"><figcaption>LG AIMERS 8기 수료증</figcaption></figure>
       </div>
       <div class="card ocard">
         <h4>미국 화물 통계 기반 물류 서비스</h4>
-        <div class="tags"><span class="tag">Pandas</span><span class="tag">Optuna</span><span class="tag">Flask</span><span class="tag">llama-3.3-70b</span></div>
-        <ul class="bul">
-          <li>한양대 ERICA SW중심대학 · NGL Korea 산학 과제(4인). 데이터 전처리와 프런트엔드 담당</li>
-          <li>2017–22년 FAF5 화물 통계에 유가·거시경제지표·인구 이동 데이터를 결합하고, 조합 단위로 재구성해 파생 변수 생성</li>
-          <li>VIF로 다중공선성을 걸러내고, Optuna로 CatBoost·XGBoost·RandomForest·LightGBM 튜닝. RandomForest가 ±10% 이내 70.3%</li>
-          <li>LLM이 비용 절감 대안과 권장 조치를 설명하는 대시보드</li>
-        </ul>
-        <figure class="ofig"><img src="../../assets/img/fa-dashboard.webp" alt="물류 비용 예측 대시보드"><figcaption>경로를 지도에 그리고 예상 운송 비용, Feature Importance, LLM의 비용 절감 분석을 함께 보여주는 대시보드</figcaption></figure>
+        <div class="tags"><span class="tag">Pandas</span><span class="tag">Optuna</span><span class="tag">Flask</span><span class="tag">LLM</span></div>
+        <dl class="kv">
+          <dt>팀</dt><dd>NGL Korea 산학 · 4인 · 전처리 · 프런트</dd>
+          <dt>데이터</dt><dd>FAF5 2017–22 + 유가 · 거시지표 · 인구 이동</dd>
+          <dt>모델</dt><dd>VIF · Optuna · 4개 모델 → RF ±10% 70.3%</dd>
+          <dt>서비스</dt><dd>LLM이 비용 절감안을 설명하는 대시보드</dd>
+        </dl>
+        <figure class="ofig"><img src="../../assets/img/fa-dashboard.webp" alt="물류 비용 예측 대시보드"><figcaption>경로 · 예상 비용 · Feature Importance · LLM 분석 대시보드</figcaption></figure>
       </div>
     </div>
   </div>
@@ -785,48 +785,49 @@ table.fit td.q{width:62mm;color:#4a4a47}
 <!-- ======================================================================
      PAGE 7 — FIT + CLOSING
      ====================================================================== -->
-<section class="page">
-  <div class="rail"><span class="v">WONCHAN PARK — FIT FOR THE ROLE</span><span class="pn">07</span></div>
+<section class="page p7">
+  <div class="rail"><span class="v">WONCHAN PARK</span><span class="pn">07</span></div>
   <div class="body">
     <div class="ring deco-a"></div><div class="disc deco-b"></div><div class="disc deco-c"></div>
 
-    <header class="ph" style="margin-bottom:5mm">
-      <span class="en">06 · Fit for the Role</span>
+    <header class="ph">
       <h2>공고 항목별 근거</h2>
-      <p class="lead">크로노스튜디오 AI팀 공고의 담당업무·자격요건·우대사항을 하나씩, 이 문서의 어느 쪽에 근거가 있는지와 함께 정리했습니다.</p>
     </header>
 
     <table class="fit">
       <colgroup><col style="width:62mm"><col><col style="width:9mm"></colgroup>
-      <thead><tr><th>공고 항목</th><th>제 근거</th><th style="text-align:right">쪽</th></tr></thead>
+      <thead><tr><th>공고 항목</th><th>근거</th><th style="text-align:right">쪽</th></tr></thead>
       <tbody>
         <tr class="grp"><td colspan="3"><span>담당업무</span></td></tr>
-        <tr><td class="q">AI Agent 기반 개발 도구·자동화 시스템 설계·개발</td><td>Agent SDK 에이전트 팀 4개(에셋·기획·보고서·백엔드)를 MCP 도구로 설계·구현</td><td class="pg">3</td></tr>
-        <tr><td class="q">LLM / Agent SDK / MCP로 AI 워크플로 구축</td><td>팀장–서브에이전트 구조, MCP 서버 23개 운용 중 9개 직접 작성</td><td class="pg">2–3</td></tr>
-        <tr><td class="q">Multi-Agent 및 Agent Orchestration 시스템</td><td>비동기 Job API(start·wait·get·list·cancel), 기획 → 백엔드 → 보고서 팀 연계</td><td class="pg">3</td></tr>
-        <tr><td class="q">반복 작업과 비효율을 없애는 Tooling</td><td>최신 문서 MCP, 부트스트랩과 실제 기동 검증, Skills</td><td class="pg">4</td></tr>
-        <tr><td class="q">최신 AI 기술 실험·프로토타이핑·실무 적용</td><td>생성형 AI 4종 MCP 연동, Gumbel AlphaZero를 실제 게임 AI로 배포</td><td class="pg">4–5</td></tr>
+        <tr><td class="q">AI Agent 기반 도구 · 자동화 시스템</td><td>에이전트 팀 4개 (MCP 도구로 호출)</td><td class="pg">3</td></tr>
+        <tr><td class="q">LLM / Agent SDK / MCP 워크플로</td><td>팀장–서브에이전트 · MCP 23개 운용 / 9개 작성</td><td class="pg">2–3</td></tr>
+        <tr><td class="q">Multi-Agent · Orchestration</td><td>비동기 Job API · 기획 → 백엔드 → 보고서 연계</td><td class="pg">3</td></tr>
+        <tr><td class="q">반복 작업을 없애는 Tooling</td><td>문서 MCP · 부트스트랩 · Skills</td><td class="pg">4</td></tr>
+        <tr><td class="q">최신 AI 실험 · 실무 적용</td><td>생성형 AI 4종 MCP · Gumbel AlphaZero 배포</td><td class="pg">4–5</td></tr>
         <tr class="grp"><td colspan="3"><span>자격요건</span></td></tr>
-        <tr><td class="q">AI와 자동화에 대한 집착에 가까운 관심</td><td>문서 변환·공부까지 에이전트로 처리, 직접 겪은 함정 기록 수십 개</td><td class="pg">2, 4</td></tr>
-        <tr><td class="q">Claude Code 등 AI 코딩 도구 적극 활용</td><td>CLI · Remote Control · 클라우드 세션을 함께 쓰고, matail.party PR 49개 이상</td><td class="pg">2, 6</td></tr>
-        <tr><td class="q">Python / TypeScript로 실제 결과물</td><td>Python: 강화학습·MCP 서버·Agent SDK 팀 / TypeScript: Workers·Astro 서비스 운영</td><td class="pg">3–6</td></tr>
-        <tr><td class="q">새 기술을 직접 찾아 실험하고 적용</td><td>SGAZ와 사람 모방 정책을 섞은 난이도, 새 생성형 API를 MCP로 연결</td><td class="pg">4–5</td></tr>
+        <tr><td class="q">AI · 자동화에 대한 집착</td><td>공부 · 문서 변환까지 에이전트로 · 함정 기록 수십 개</td><td class="pg">2, 4</td></tr>
+        <tr><td class="q">AI 코딩 도구 적극 활용</td><td>CLI · Remote Control · 클라우드 세션 · PR 49+</td><td class="pg">2, 6</td></tr>
+        <tr><td class="q">Python / TypeScript 결과물</td><td>Python: RL · MCP · Agent SDK / TS: Workers · Astro</td><td class="pg">3–6</td></tr>
+        <tr><td class="q">새 기술 직접 실험 · 적용</td><td>SGAZ × 사람 모방 난이도 · 새 API를 MCP로</td><td class="pg">4–5</td></tr>
         <tr class="grp"><td colspan="3"><span>우대사항</span></td></tr>
-        <tr><td class="q">AI로 직접 만든 도구·서비스·자동화 시스템</td><td>에이전트 팀, 최신 문서 MCP, matail.party, Streams</td><td class="pg">3–6</td></tr>
-        <tr><td class="q">Agent SDK / MCP / Tool Calling / Multi-Agent 구현</td><td>서브에이전트별 도구 제한, 유료 호출 가드, StructuredOutput 매니페스트</td><td class="pg">3</td></tr>
-        <tr><td class="q">Full-stack 개발 경험</td><td>Astro·TypeScript·Workers·D1·Durable Objects, Flask·Supabase</td><td class="pg">6</td></tr>
-        <tr><td class="q">AI 오픈소스를 뜯어보거나 개조</td><td>unity-mcp 버전 고정 원리, blender-mcp 프로토콜 차이 분석</td><td class="pg">4</td></tr>
-        <tr><td class="q">복잡한 개발 워크플로 자동화</td><td>worktree로 격리한 리팩터링 팀, 서버 23개 부트스트랩</td><td class="pg">3–4</td></tr>
-        <tr><td class="q">Unity / Unreal 게임 개발 환경 이해</td><td>Unity 6 리빌드와 WebGL 배포, Unity MCP 연동</td><td class="pg">5</td></tr>
+        <tr><td class="q">AI로 만든 도구 · 서비스</td><td>에이전트 팀 · 문서 MCP · matail.party · Streams</td><td class="pg">3–6</td></tr>
+        <tr><td class="q">Agent SDK / MCP / Tool Calling</td><td>역할별 도구 제한 · 유료 호출 가드 · 구조화 출력</td><td class="pg">3</td></tr>
+        <tr><td class="q">Full-stack</td><td>Astro · TS · Workers · D1 · DO / Flask · Supabase</td><td class="pg">6</td></tr>
+        <tr><td class="q">AI 오픈소스 분석 · 개조</td><td>unity-mcp 버전 고정 · blender-mcp 프로토콜 분석</td><td class="pg">4</td></tr>
+        <tr><td class="q">복잡한 워크플로 자동화</td><td>worktree 격리 리팩터링 · 서버 23개 부트스트랩</td><td class="pg">3–4</td></tr>
+        <tr><td class="q">Unity / Unreal</td><td>Unity 6 리빌드 · WebGL 배포 · Unity MCP</td><td class="pg">5</td></tr>
       </tbody>
     </table>
 
     <div class="gap"></div>
     <div class="close">
       <div class="ring"></div><div class="disc"></div>
-      <span class="en">Why Chrono Studio AI Team</span>
-      <h3>반복은 에이전트에게, 판단은 사람에게 남기는 도구를 만들고 싶습니다.</h3>
-      <p>게임 개발에는 에셋 준비, 빌드, QA 보고처럼 매번 비슷하게 반복되는 일이 많습니다. 저는 이 일들을 혼자 쓰는 규모에서 에이전트 팀으로 바꿔 돌려 보고 있습니다. 크로노스튜디오 AI팀에서는 이것을 실제 개발팀의 워크플로와 규모에서 검증하고, 사람이 결정해야 할 지점은 분명히 남기면서 반복만 덜어 내는 도구를 만들고 싶습니다.</p>
+      <h3>반복은 에이전트에게, 판단은 사람에게</h3>
+      <dl class="kv">
+        <dt>보이는 반복</dt><dd>에셋 준비 · 빌드 · QA 보고</dd>
+        <dt>지금</dt><dd>혼자 쓰는 규모에서 에이전트 팀으로 운용 중</dd>
+        <dt>하고 싶은 일</dt><dd>실제 개발팀 규모에서 검증하고, 결정 지점은 사람에게 남기는 도구</dd>
+      </dl>
       <div class="ct"><span>pow01042@naver.com</span><span>matail.party</span><span>github.com/Matail</span></div>
     </div>
   </div>
