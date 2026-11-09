@@ -1,0 +1,31 @@
+/* ==========================================================================
+   WONCHAN. — general IT edition, shared type overrides.
+
+   The case-study pages reuse ../assets/project.css and the lightbox styles
+   from the main site; this file swaps the pixel display face for a clean
+   sans and a mono, so the same layout reads as an engineering portfolio.
+   Load it after project.css / lightbox.css.
+   ========================================================================== */
+:root{
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,'Wanted Sans Variable',monospace;
+  --sans:'Wanted Sans Variable','Pretendard Variable',system-ui,sans-serif;
+}
+h1,h2,h3{font-family:var(--sans); font-weight:800; letter-spacing:-.035em}
+.mono,.hud,.no,.pager a,.kicker{font-family:var(--mono); letter-spacing:.14em}
+.hud.tc b{letter-spacing:.12em}
+
+/* case-study details */
+.lead h1{letter-spacing:-.04em}
+.cards h3{font-family:var(--sans); font-size:15px; font-weight:800; letter-spacing:-.01em; color:var(--ink)}
+.cards h3 small{display:block; margin-bottom:8px; font-family:var(--mono); font-size:10px; font-weight:400;
+  letter-spacing:.16em; color:var(--muted)}
+.note h3{font-family:var(--mono); font-weight:500; letter-spacing:.16em; font-size:10.5px}
+.metrics div b{font-family:var(--sans); font-weight:800; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
+.tags span.mono{font-weight:500; letter-spacing:.08em}
+.stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:22px}
+.stack span{font-family:var(--mono); font-size:10.5px; letter-spacing:.04em; color:var(--ink-2);
+  border:1px solid var(--line); border-radius:6px; padding:4px 8px; background:rgba(11,11,10,.5)}
+
+/* lightbox chrome */
+.lb-cap{font-family:var(--sans); letter-spacing:.01em}
+.lb-hint,.lb-zoom{font-family:var(--mono); letter-spacing:.08em}

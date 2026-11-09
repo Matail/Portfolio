@@ -1,0 +1,8 @@
+/* Fonts for the general IT edition (it/).
+   Wanted Sans (c) Wanted Lab, JetBrains Mono (c) The JetBrains Mono Project
+   Authors, both SIL OFL 1.1. Subset to the glyphs the it/ pages render -
+   re-run the subset when the copy changes, or new characters fall back. */
+@font-face{font-family:'Wanted Sans Variable';font-style:normal;font-display:swap;
+  font-weight:400 1000;src:url('WantedSansVariable.it.woff2') format('woff2-variations'),url('WantedSansVariable.it.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;
+  font-weight:100 800;src:url('JetBrainsMono.it.woff2') format('woff2-variations'),url('JetBrainsMono.it.woff2') format('woff2')}
